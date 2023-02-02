@@ -37,7 +37,8 @@ public class CalculatorController {
                 result = number1 / number2;
                 break;
             default:
-                model.addAttribute("message","Need to enter calculation")
+                model.addAttribute("message","Need to enter calculation");
+                return "home";
         }
         model.addAttribute("resultName", result);
         return "home";
