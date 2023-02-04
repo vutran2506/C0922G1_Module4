@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -62,5 +63,10 @@ public class ProductController {
     public String view(@PathVariable int id,Model model){
         model.addAttribute("product",productService.findById(id));
         return"view";
+    }
+    @GetMapping("product/search")
+    public String search(@RequestParam String name, Model model){
+        model.addAttribute("products",productService.findByName(name));
+        return "list";
     }
 }

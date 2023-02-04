@@ -46,6 +46,11 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public Product findByName(String name) {
-        return productList.get(name);
+        for (Product product: productList.values()){
+            if (product.getName().equals(name)){
+                return product;
+            }
+        }
+        return null;
     }
 }
