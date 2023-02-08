@@ -63,28 +63,26 @@
   </tr>
   </thead>
   <body>
-  <tr class="table-active" th:each="blog:${blogs}">
+  <tr class="table-active" th:each="blog:${blogPage}">
     <td th:text="${blog.id}"></td>
     <td th:text="${blog.name}"></td>
     <td th:text="${blog.category.getName()}"></td>
     <td th:text="${blog.author}"></td>
     <td th:text="${blog.dateCreate}"></td>
     <td><button  class="btn btn-primary"><a style="text-decoration: none;color: white"  th:href="@{/blog/{id}/edit(id=${blog.getId()})}">edit</a></button></td>
-    <!--        <td><a th:href="@{/product/{id}/delete(id=${product.getId()})}">delete</a></td>-->
 
     <td > <button th:attr="onclick=|infoDelete('${blog.id}','${blog.name}')|"
                   class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Delete
     </button></td>
     <td><button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/blog/{id}/view(id=${blog.getId()})}">view</a></button></td>
-
   </tr>
   </body>
 </table>
 <div>
-  <a th:href="@{blog(page=${blogPage.number - 1})}" th:if="${blogPage.hasPrevious()}"><button class="btn btn-success">Previous</button></a>
+  <a th:href="@{/(page=${blogPage.number - 1})}" th:if="${blogPage.hasPrevious()}"><button class="btn btn-success">Previous</button></a>
   <span th:text="${blogPage.number +1}"></span>/<span th:text="${blogPage.totalPages}"></span>
-  <a th:href="@{blog(page=${list.number + 1})}" th:if="${blogPage.hasNext()}"><button class="btn btn-success">Next</button></a>
+  <a th:href="@{/(page=${blogPage.number + 1})}" th:if="${blogPage.hasNext()}"><button class="btn btn-success">Next</button></a>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
