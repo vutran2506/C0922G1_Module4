@@ -5,7 +5,13 @@
 <head >
 </head>
 <body>
-<h1>Add Song</h1>
+<h1 style="text-align: center">Add Song</h1>
+<p>
+    <button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/}">
+        Back to list Song
+    </a></button>
+</p>
+
 <form th:action="@{/song/save}" th:object="${songDto}" method="post" >
     Name Song:<br>
     <input type="text" th:field="*{nameSong}" ><br>
@@ -18,5 +24,6 @@
     <small style="color: red" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></small><br>
     <input type="submit" value="Save">
 </form>
+
 </body>
 </html>

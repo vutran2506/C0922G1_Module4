@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -50,5 +48,21 @@ public class SongController {
 
         model.addAttribute("songDto", songService.findById(id));
         return "edit";
+    }
+
+    @PostMapping("/song/edit")
+    public String edit(@Validated @ModelAttribute SongDto songDto, BindingResult bindingResult, @RequestParam int id,
+                       Model model, RedirectAttributes redirectAttributes) {
+
+     if (bindingResult.hasErrors()){
+         model.addAttribute("songDto",songDto);
+         return "edit";
+     }
+        Song song = new Song();
+        BeanUtils.copyProperties(songDto, song);
+        song.setId(id);
+        songService.save(song);
+        redirectAttributes.addFlashAttribute("mess", "Successfully created");
+        return "redirect:/";
     }
 }

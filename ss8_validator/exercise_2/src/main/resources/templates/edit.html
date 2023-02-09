@@ -5,8 +5,15 @@
 <head >
 </head>
 <body>
-<h1>Edit Song</h1>
-<form th:action="@{/song/save}" th:object="${songDto}" method="post" >
+<h1 style="text-align: center">Edit Song</h1>
+<p>
+    <button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/}">
+        Back to list Song
+    </a></button>
+</p>
+
+<form th:action="@{/song/edit}" th:object="${songDto}" method="post" >
+    <input type="hidden" th:field="*{id}">
     Name Song:<br>
     <input type="text" th:field="*{nameSong}" ><br>
     <small style="color: red" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></small><br>
@@ -16,6 +23,11 @@
     Category:<br>
     <input  type="text" th:field="*{category}"><br>
     <small style="color: red" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></small><br>
+<!--    <select th:field="*{category}">-->
+<!--        <option th:value="Nhạc Trẻ">Nhạc Trẻ</option>-->
+<!--        <option th:value="Nhạc Thiếu Nhi">Nhạc Thiếu Nhi</option>-->
+<!--        <option th:value="Nhạc Đỏ">Nhạc Đỏ</option>-->
+<!--    </select>-->
     <input type="submit" value="Edit">
 </form>
 </body>

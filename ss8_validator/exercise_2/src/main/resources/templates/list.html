@@ -33,8 +33,8 @@
         <td th:text="${song.singer}"></td>
         <td th:text="${song.category}"></td>
         <td>
-            <button class="btn btn-primary">
-                <a th:href="@{/song/{id}/edit(id=${song.getId()})}">Edit</a>
+            <button   class="btn btn-primary">
+                <a style="text-decoration: none; color: white"  th:href="@{/song/{id}/edit(id=${song.getId()})}">Edit</a>
             </button>
         </td>
 

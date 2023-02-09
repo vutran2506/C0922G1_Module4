@@ -9,17 +9,17 @@ public class SongDto implements Validator {
     private int id;
     @NotEmpty(message = "Không được để trống")
     @Size(max = 800,message = "Số kí tự không quá 800 kí tự")
-    @Pattern(regexp = "^([\\p{L}\\s]|\\w\\W\\d|[,]|[!]|[?][.])+$",message = "Không đúng định dạng")
+    @Pattern(regexp = "^[a-z A-Z]+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
     @NotBlank(message = "Không được chứa kí tự bắt đầu bằng dấu cách")
     private String nameSong;
     @NotEmpty(message = "Không được để trống")
     @Size(max = 300,message = "Số kí tự không quá 300 kí tự")
-    @Pattern(regexp = "^([\\p{L}\\s]|\\w\\W\\d|[,])+$",message = "Không đúng định dạng")
+    @Pattern(regexp = "^[a-z A-Z]+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
     @NotBlank(message = "Không được chứa kí tự bắt đầu bằng dấu cách")
     private String singer;
     @Size(max = 1000,message = "Số kí tự không quá 800 kí tự")
     @NotEmpty(message = "Không được để trống")
-    @Pattern(regexp = "^([\\p{L}\\s]|\\w\\W\\d)+$",message = "Không đúng định dạng")
+    @Pattern(regexp = "^[a-z A-Z]+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
     @NotBlank(message = "Không được chứa kí tự bắt đầu bằng dấu cách")
     private String category;
 
