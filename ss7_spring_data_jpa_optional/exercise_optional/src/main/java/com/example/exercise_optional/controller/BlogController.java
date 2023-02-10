@@ -29,7 +29,6 @@ public class BlogController {
     public String showList(Model model,@RequestParam(required = false, defaultValue = "") String nameSearch,
                                  @PageableDefault(size = 2, page = 0, sort = "dateCreate", direction = Sort.Direction.ASC) Pageable pageable){
         Page<Blog> blogPage = blogService.findByNam(nameSearch,pageable);
-//        model.addAttribute("blogs", blogService.findAll());
         model.addAttribute("blogPage", blogPage);
         return "list";
     }

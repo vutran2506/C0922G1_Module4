@@ -14,4 +14,5 @@ public interface IBlogService {
     void  delete(int id);
     Optional findById(int id);
     Page<Blog> findByNam(String name, Pageable pageable);
+    Page<Blog> findByCategory_Id(int id, Pageable pageable);
 }

@@ -1,8 +1,14 @@
 package com.example.exercise_optional.controller;
 
+import com.example.exercise_optional.model.Blog;
 import com.example.exercise_optional.model.Category;
+import com.example.exercise_optional.service.IBlogService;
 import com.example.exercise_optional.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +25,8 @@ public class CategoryController {
 
     @Autowired
     private  ICategoryService categoryService;
+    @Autowired
+    private IBlogService blogService;
 
     @GetMapping("/category")
     public String showList(Model model){
@@ -46,5 +54,12 @@ public class CategoryController {
     public String edit(@PathVariable int id, Model model){
         model.addAttribute("category",categoryService.findById(id));
         return "/category/edit";
+    }
+    @GetMapping("/category/{id}/view")
+    public String view(@PathVariable int id,Model model,@PageableDefault(size = 2, page = 0, sort = "dateCreate", direction = Sort.Direction.ASC) Pageable pageable){
+        Page<Blog> blogPage = blogService.findByCategory_Id(id,pageable);
+        model.addAttribute("blogPage", blogPage);
+        model.addAttribute("idz", id);
+        return "list";
     }
 }
