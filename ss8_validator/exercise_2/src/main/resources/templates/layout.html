@@ -8,7 +8,7 @@
 
 <nav th:fragment="navbar" class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <img style="width: 160px;height: 80px ; border-radius: 10px " class="navbar-brand" src="https://msmobile.com.vn/upload_images/images/hinh-nen-vui-nhon-cho-may-tinh-11.jpg"></img>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,7 +36,12 @@
         </li>
       </ul>
       <form class="d-flex" role="search" action="/">
-        <input class="form-control me-2" type="search" name="name" placeholder="Search" aria-label="Search">
+
+          <input class="form-control me-2" type="search"  placeholder="Search Name" aria-label="Search" name="nameSearch" th:value="${nameSearch}">
+          <input class="form-control me-2" type="search"  placeholder="Search Singer" aria-label="Search"  name="singerSearch" th:value="${singerSearch}" >
+
+          <input class="form-control me-2" type="search"  placeholder="Search Category" aria-label="Search"  name="categorySearch" th:value="${categorySearch}">
+
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

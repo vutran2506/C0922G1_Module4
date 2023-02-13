@@ -18,7 +18,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public List<Product> findAll() {
         List<Product> productList;
-        productList = entityManager.createQuery(" FROM  Product ").getResultList();
+        productList = entityManager.createQuery(" select p FROM  Product as p ").getResultList();
         return productList;
     }
 
@@ -27,13 +27,15 @@ public class ProductRepository implements IProductRepository {
     public void create(Product product) {
         entityManager.persist(product);
     }
+
     @Transactional
     @Override
     public void remove(int id) {
         Product product1 = findById(id);
         entityManager.remove(product1);
     }
-@Transactional
+
+    @Transactional
     @Override
     public void update(Product product) {
         Product product1 = findById(product.getId());
@@ -51,8 +53,8 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> findByNam(String name) {
-        List<Product>productList1;
-        productList1 = entityManager.createQuery("select p from Product p where p.name like :name").setParameter("name","%"+name+"%").getResultList();
+        List<Product> productList1;
+        productList1 = entityManager.createQuery("select p from Product p where p.name like :name").setParameter("name", "%" + name + "%").getResultList();
         return productList1;
     }
 }

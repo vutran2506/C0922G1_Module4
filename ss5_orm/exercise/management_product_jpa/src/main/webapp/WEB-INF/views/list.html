@@ -43,15 +43,15 @@
 </nav>
 <h3>Product</h3>
 <p>
-    <a th:href="@{/product/create}">
+    <button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/product/create}">
         Add new product
-    </a>
+    </a></button>
 </p>
-<p th:text="${mess}">
-</p>
+<marquee  th:text="${mess}">
+</marquee>
 <table class="table">
     <thead>
-    <tr>
+    <tr style="background-color: lightblue;" >
         <th>Id</th>
         <th>Name</th>
         <th>Price</th>
@@ -69,14 +69,14 @@
         <td th:text="${product.getPrice()}"></td>
         <td th:text="${product.getDescription()}"></td>
         <td th:text="${product.getBrand()}"></td>
-        <td><a th:href="@{/product/{id}/edit(id=${product.getId()})}">edit</a></td>
+        <td><button  class="btn btn-primary"><a style="text-decoration: none;color: white"  th:href="@{/product/{id}/edit(id=${product.getId()})}">edit</a></button></td>
 <!--        <td><a th:href="@{/product/{id}/delete(id=${product.getId()})}">delete</a></td>-->
 
         <td > <button th:onclick="|infoDelete('${product.getId()}','${product.getName()}')|"
                       class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Delete
         </button></td>
-        <td><a th:href="@{/product/{id}/view(id=${product.getId()})}">view</a></td>
+        <td><button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/product/{id}/view(id=${product.getId()})}">view</a></button></td>
 
     </tr>
     </body>

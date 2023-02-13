@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="214645da-7df9-4ecc-ac1e-c8f38561be14" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/java/com/example/controller/SettingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/java/com/example/model/Settings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/java/com/example/repository/ISettingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/java/com/example/repository/SettingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/java/com/example/service/ISettingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/java/com/example/service/SettingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/views/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/exercise/Currency_conversion/demo/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/exercise/Currency_conversion/demo/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/exercise/dictionary_app/dictionary/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/exercise/dictionary_app/dictionary/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/IStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/IStudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/IStudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exeecise/caculator/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exeecise/caculator/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/practice_check_mail/src/main/java/com/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/practice/practice_check_mail/src/main/java/com/example/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/practice_check_mail/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/practice/practice_check_mail/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/practice_check_mail/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/practice/practice_check_mail/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/the_world_clock/src/main/java/com/example/controller/TimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/practice/the_world_clock/src/main/java/com/example/controller/TimeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/the_world_clock/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/practice/the_world_clock/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/the_world_clock/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/practice/the_world_clock/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2LB2IfTLfIF7FrW8nUK8hmak603" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CodeGym_Module_4/ss2_spring_controller"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="214645da-7df9-4ecc-ac1e-c8f38561be14" name="Changes" comment="" />
+      <created>1675330076769</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675330076769</updated>
+      <workItem from="1675330079131" duration="59000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

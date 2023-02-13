@@ -16,13 +16,13 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String showList(Model model) {
         model.addAttribute("blogs", blogService.findAll());
         return "list";
     }
 
-    @GetMapping("blog/create")
+    @GetMapping("/blog/create")
     public String create(Model model) {
         model.addAttribute("blog", new Blog());
         return "create";
@@ -35,7 +35,7 @@ public class BlogController {
         return "redirect:/";
     }
 
-    @GetMapping("blog/delete")
+    @GetMapping("/blog/delete")
     public String delete(@RequestParam int id, RedirectAttributes redirectAttributes) {
         blogService.delete(id);
         redirectAttributes.addFlashAttribute("mess", "successfully deleted");

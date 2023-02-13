@@ -12,28 +12,30 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private IUserService userService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String showList(Model model) {
         model.addAttribute("userList", userService.findAll());
         return "list";
 
     }
 
-    @GetMapping("/user/create")
+    @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("userDto", new UserDto());
         return "create";
     }
 
-    @PostMapping("/user/save")
+    @PostMapping("/save")
     public String save(@Validated UserDto userDto, BindingResult bindingResult, Model model,
                        RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()){
@@ -44,6 +46,6 @@ public class UserController {
         BeanUtils.copyProperties(userDto, user);
         userService.save(user);
         redirectAttributes.addFlashAttribute("mess", "Success created");
-        return "redirect:/";
+        return "redirect:";
     }
 }

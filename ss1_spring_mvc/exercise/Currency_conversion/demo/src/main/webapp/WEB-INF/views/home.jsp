@@ -16,7 +16,7 @@
     <table>
         <tr>
             <th> Input USD</th>
-            <th><input name="usd" placeholder="Enter Usd" value="0"></th>
+            <th><input name="usd" placeholder="Enter Usd"></th>
         </tr>
         <tr>
             <th></th>

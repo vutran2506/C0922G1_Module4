@@ -7,6 +7,7 @@ import javax.persistence.ManyToOne;
 
 public class BlogDto {
     private int id;
+
     private String name;
     private String author;
     private String dateCreate;
@@ -31,6 +32,7 @@ public class BlogDto {
 
     public BlogDto(int id, String name, String author, String dateCreate, String content, Category category) {
         this.id = id;
+
         this.name = name;
         this.author = author;
         this.dateCreate = dateCreate;

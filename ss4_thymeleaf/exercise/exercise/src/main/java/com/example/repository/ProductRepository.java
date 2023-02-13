@@ -15,6 +15,7 @@ public class ProductRepository implements IProductRepository {
     static {
         productList = new HashMap<>();
         productList.put(1, new Product(1, "bike", 1000.0, "new", "chinese"));
+        productList.put(4, new Product(4, "bike", 1000.0, "new", "chineses"));
         productList.put(2, new Product(2, "car", 10000.0, "new", "vietnamese"));
         productList.put(3, new Product(3, "motoBike", 5000.0, "new", "Japanese"));
     }
@@ -41,16 +42,22 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public Product findById(int id) {
-        return productList.get(id);
-    }
-
-    @Override
-    public Product findByName(String name) {
         for (Product product: productList.values()){
-            if (product.getName().equals(name)){
+            if (product.getName().equals(id)){
                 return product;
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Product> findByName(String name) {
+        List<Product> productList1 = new ArrayList<>();
+        for (Product product: productList.values()){
+            if (product.getName().equals(name)){
+                productList1.add(product);
+            }
+        }
+        return productList1;
     }
 }

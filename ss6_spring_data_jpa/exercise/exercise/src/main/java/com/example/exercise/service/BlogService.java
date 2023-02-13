@@ -24,11 +24,6 @@ public class BlogService implements IBlogService {
     }
 
     @Override
-    public void edit(Blog blog) {
-        blogRepository.save(blog);
-    }
-
-    @Override
     public void delete(int id) {
 
         blogRepository.delete(blogRepository.findById(id).get());

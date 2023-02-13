@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Gradle : com.example : management_product_jpa-1.0-SNAPSHOT.war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="47e0f814-0a97-4913-973b-99736e1feace" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/Currency_conversion/demo/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/Currency_conversion/demo/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/dictionary_app/dictionary/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/dictionary_app/dictionary/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/IStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/IStudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/IStudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/java/com/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/java/com/example/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/java/com/example/controller/TimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/java/com/example/controller/TimeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/IProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/IProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/java/com/example/exercise/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/java/com/example/exercise/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/view.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LLjNlpZqStPDJCFk5jdYuHkLa6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CodeGym_Module_4/ss6_spring_data_jpa/exercise/exercise&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b5ed641b1c87732915ef012538e36b4c&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CodeGym_Module_4\ss5_orm\exercise\management_product_jpa\src\main\java\com\example\configuration" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.702" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.702" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : com.example : management_product_jpa-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="2e6f679e-7279-4ac2-95d1-de23d880d72e" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50250" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com.example : management_product_jpa-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47e0f814-0a97-4913-973b-99736e1feace" name="Changes" comment="" />
+      <created>1675657221643</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675657221643</updated>
+      <workItem from="1675657223328" duration="13811000" />
+      <workItem from="1675678729525" duration="243000" />
+      <workItem from="1675688399216" duration="3767000" />
+      <workItem from="1675739614265" duration="403000" />
+      <workItem from="1675740044904" duration="472000" />
+      <workItem from="1675740567761" duration="137000" />
+      <workItem from="1675740736212" duration="6695000" />
+      <workItem from="1675773328003" duration="616000" />
+      <workItem from="1675777897748" duration="254000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

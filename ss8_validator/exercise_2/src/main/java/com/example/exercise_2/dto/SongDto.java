@@ -7,19 +7,19 @@ import javax.validation.constraints.*;
 
 public class SongDto implements Validator {
     private int id;
-    @NotEmpty(message = "Không được để trống")
-    @Size(max = 800,message = "Số kí tự không quá 800 kí tự")
-    @Pattern(regexp = "^[a-z A-Z]+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
-    @NotBlank(message = "Không được chứa kí tự bắt đầu bằng dấu cách")
+//    @NotEmpty(message = "Không được để trống")
+//    @Size(max = 800,message = "Số kí tự không quá 800 kí tự")
+//    @Pattern(regexp = "^([\\p{L}\\s])+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
+//    @NotBlank(message = "Không được chứa kí tự bắt đầu bằng dấu cách")
     private String nameSong;
     @NotEmpty(message = "Không được để trống")
     @Size(max = 300,message = "Số kí tự không quá 300 kí tự")
-    @Pattern(regexp = "^[a-z A-Z]+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
+    @Pattern(regexp = "^([\\p{L}\\s])+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
     @NotBlank(message = "Không được chứa kí tự bắt đầu bằng dấu cách")
     private String singer;
     @Size(max = 1000,message = "Số kí tự không quá 800 kí tự")
     @NotEmpty(message = "Không được để trống")
-    @Pattern(regexp = "^[a-z A-Z]+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
+    @Pattern(regexp = "^([\\p{L}\\s])+$",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
     @NotBlank(message = "Không được chứa kí tự bắt đầu bằng dấu cách")
     private String category;
 
@@ -71,12 +71,12 @@ public class SongDto implements Validator {
     }
     @Override
     public void validate(Object target, Errors errors) {
-//        SongDto musicDto = (SongDto) target;
-//        String song = musicDto.getNameSong();
-//        if (song.length()>800){
-//            errors.rejectValue("nameSong","nameSongError1","Không được quá 800 ký tự");
-//        } else if (song.matches("^[@|#|$|%|^|&|*(|)|+|-]+$")) {
-//            errors.rejectValue("nameSong","nameSongError2","Có chứ kí tự đặc biệt");
-//        }
+        SongDto songDto = (SongDto) target;
+        String song = songDto.getNameSong();
+        if (song.length()>800){
+            errors.rejectValue("nameSong","nameSongError1","Không được quá 800 ký tự");
+        } else if (!song.matches("^([\\p{L}\\s])+$")) {
+            errors.rejectValue("nameSong","nameSongError2","Có chứa kí tự đặc biệt");
+        }
     }
 }

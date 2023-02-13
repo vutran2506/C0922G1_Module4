@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 style="text-align: center">Add User</h1>
-<button class="btn btn-primary"><a style="text-decoration: none; color: white" th:href="@{/}">
+<button class="btn btn-primary"><a style="text-decoration: none; color: white" th:href="@{/user}">
     Back To Blog List
 </a></button>
 <form th:action="@{/user/save}" th:object="${userDto}" th method="post">

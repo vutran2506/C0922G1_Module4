@@ -36,7 +36,7 @@ public class ProductController {
     @GetMapping("product/delete")
     public String delete(@RequestParam int id, RedirectAttributes redirectAttributes) {
         productService.remove(id);
-        redirectAttributes.addFlashAttribute("mess", "successful delete");
+        redirectAttributes.addFlashAttribute("mess", "successful deleted");
         return "redirect:/";
     }
 
@@ -49,7 +49,7 @@ public class ProductController {
     @PostMapping("product/update")
     public String update( Product product, RedirectAttributes redirectAttributes) {
         productService.update(product);
-        redirectAttributes.addFlashAttribute("mess", "successful update");
+        redirectAttributes.addFlashAttribute("mess", "successful updated");
         return "redirect:/";
     }
 
@@ -60,7 +60,11 @@ public class ProductController {
     }
     @GetMapping("/product/search")
     public  String search(String name,Model model){
+        if(productService.findByNam(name).isEmpty()){
+            model.addAttribute("mess","Not Find product");
+        }
         model.addAttribute("products", productService.findByNam(name));
+
         return "list";
     }
 }

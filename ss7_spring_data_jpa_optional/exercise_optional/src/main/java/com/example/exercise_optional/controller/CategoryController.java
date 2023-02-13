@@ -1,5 +1,6 @@
 package com.example.exercise_optional.controller;
 
+import ch.qos.logback.core.pattern.color.BoldGreenCompositeConverter;
 import com.example.exercise_optional.model.Blog;
 import com.example.exercise_optional.model.Category;
 import com.example.exercise_optional.service.IBlogService;
@@ -56,8 +57,13 @@ public class CategoryController {
         return "/category/edit";
     }
     @GetMapping("/category/{id}/view")
-    public String view(@PathVariable int id,Model model,@PageableDefault(size = 2, page = 0, sort = "dateCreate", direction = Sort.Direction.ASC) Pageable pageable){
+    public String view(@PathVariable int id,Model model,
+                       @PageableDefault(size = 2, page = 0,
+            sort = "dateCreate", direction = Sort.Direction.ASC) Pageable pageable){
         Page<Blog> blogPage = blogService.findByCategory_Id(id,pageable);
+//        Query thuần
+//        Page<Blog> blogPage = blogService.search(id, pageable);
+
         model.addAttribute("blogPage", blogPage);
         model.addAttribute("idz", id);
         return "list";

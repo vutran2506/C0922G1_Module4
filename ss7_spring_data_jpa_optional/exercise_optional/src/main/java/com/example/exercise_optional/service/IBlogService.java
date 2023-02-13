@@ -15,4 +15,5 @@ public interface IBlogService {
     Optional findById(int id);
     Page<Blog> findByNam(String name, Pageable pageable);
     Page<Blog> findByCategory_Id(int id, Pageable pageable);
+//    Page<Blog> search(int id,Pageable pageable);
 }

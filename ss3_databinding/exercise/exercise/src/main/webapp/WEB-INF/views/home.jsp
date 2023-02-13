@@ -13,7 +13,8 @@
 </head>
 <body>
 <h1>Settings</h1>
-<form:form modelAttribute="setting" action="/newUpdate" method="post">
+<form:form modelAttribute="setting" action="/
+newUpdate" method="post">
     Language:
     <form:hidden path="id" items="${id}" multiple="false"></form:hidden><br>
     <form:select path="languages" items="${languages}" multiple="false"></form:select><br>
