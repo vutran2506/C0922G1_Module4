@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 @Controller
 public class ShoppingCartController {
     @ModelAttribute("cart")
-    public Cart setupCart(){
+    public Cart setupCart() {
         return new Cart();
     }
+
     @GetMapping("/shopping-cart")
-    public String showCart(@SessionAttribute Cart cart, Model model){
-model.addAttribute("cart", cart);
-return "/cart";
+    public String showCart(@SessionAttribute("cart") Cart cart, Model model) {
+        model.addAttribute("cart", cart);
+        return "/cart";
     }
 }

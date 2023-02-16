@@ -12,15 +12,28 @@ public class Product {
     private Long id;
     private String name;
     private double price;
+    private String image;
+
+    public Product(Long id, String name, double price, String image, String description) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.image = image;
+        this.description = description;
+    }
+
     private String description;
 
     public Product() {
     }
 
-    public Product(String name, double price, String description) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Long getId() {

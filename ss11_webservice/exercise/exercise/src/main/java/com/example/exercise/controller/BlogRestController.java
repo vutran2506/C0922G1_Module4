@@ -44,22 +44,4 @@ public class BlogRestController {
         return new ResponseEntity<>(blogService.findById(id), HttpStatus.OK);
     }
 
-// Xem các Category
-    @GetMapping("/category")
-    public ResponseEntity<List<Category>> getAllCategory() {
-        List<Category> categoryList = categoryService.findAll();
-        if (categoryList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(categoryList,HttpStatus.OK);
-    }
-// Xem các Blog của 1 category
-    @GetMapping("/category/{id}")
-    public ResponseEntity<Set<Blog>> getCategoryById(@PathVariable int id) {
-       Category category = categoryService.findById(id);
-        if (category.getBlogSet().isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(category.getBlogSet() ,HttpStatus.OK);
-    }
 }

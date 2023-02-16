@@ -9,11 +9,12 @@
 <body>
 <nav th:replace="layout::navbar"></nav>
 <h1 style="text-align: center ;color: green"> Review Product</h1>
+<a th:href="@{/shop}" class="btn btn-outline-primary">Quay Lại Cửa Hàng</a>
 <form th:object="${product}">
     <div class="row">
         <div  class="card m-lg-3" style="width: 18rem;">
 
-            <img th:src="${product.get().description}"  style="width: 15rem;height: 20rem" >
+            <img th:src="${product.get().getImage()}"  style="width: 15rem;height: 20rem" >
 
             <div class="card-body">
                 <span>Name product:&nbsp;&nbsp;</span>
@@ -26,7 +27,15 @@
             </div>
 
         </div>
+        <div  class="card m-lg-3" style="width: 18rem;">
 
+
+
+            <div class="card-body">
+                <p th:text="${product.get().description}"></p>
+            </div>
+
+        </div>
     </div>
 </form>
 

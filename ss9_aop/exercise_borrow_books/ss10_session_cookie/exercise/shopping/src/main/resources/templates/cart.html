@@ -18,10 +18,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr th:each="product : ${cart.products}">
-    <td th:text="${product.getKey().name}"></td>
+  <tr th:each="product : ${cart.products.entrySet()}">
+
+    <td th:text="${product.key.name}"></td>
     <td>
-      <img th:src="${product.getKey().description}" height="100" width="100">
+      <button class="position-absolute btn btn-danger" ><a th:href="@{/delete/__${product.getKey().id}__(action='show')}" style="color: white;text-decoration: none" >X</a></button>
+      <img th:src="${product.key.image}" height="100" width="100">
     </td>
 
 
@@ -36,8 +38,11 @@
   <tr>
     <td>Tổng Tiền</td>
     <td></td>
-    <td></td>
+
     <td th:text="${cart.countTotalPayment()}"></td>
+    <td>
+      <button class="btn btn-outline-primary"><a th:href="@{/pay/(action='show')}">Pay</a></button>
+    </td>
   </tr>
   </tbody>
 </table>

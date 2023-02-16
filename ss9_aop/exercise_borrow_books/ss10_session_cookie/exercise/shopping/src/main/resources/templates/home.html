@@ -15,7 +15,7 @@
 <div class="row">
     <div th:each="product:${productList}" class="card m-lg-3" style="width: 18rem;">
 <a th:href="@{/shop/detail/{id}(id=${product.id})}">
-    <img th:src="${product.description}"  style="width: 15rem;height: 20rem" >
+    <img th:src="${product.image}"  style="width: 15rem;height: 20rem" >
 </a>
 
             <div class="card-body">

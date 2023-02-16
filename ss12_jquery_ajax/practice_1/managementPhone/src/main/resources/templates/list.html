@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title> SmartPhone List</title>
+
+</head>
+<body>
+<form id="add-smartphone">
+  <table>
+    <tr>
+      <td>Producer:</td>
+      <td><input type="text" id="producer" placeholder="producer"></td>
+    </tr>
+    <tr>
+      <td>Model:</td>
+      <td><input type="text" id="model" placeholder="model"></td>
+    </tr>
+    <tr>
+      <td>Price:</td>
+      <td><input type="text" id="price" placeholder="price"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Add" onclick="addNewSmartPhone()"></td>
+    </tr>
+  </table>
+</form>
+<h1>SmartPhone List</h1>
+<table id="smartphoneList">
+  <tr>
+    <th>Producer</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Delete</th>
+  </tr>
+  <th:block th:each="smartPhone:${smartPhones}">
+    <tr>
+      <td th:text="${smartPhone.producer}"></td>
+      <td th:text="${smartPhone.model}"></td>
+      <td th:text="${smartPhone.price}"></td>
+      <td><a class="deleteSmartPhone" th:href="${smartPhone.id}">Delete</a></td>
+    </tr>
+  </th:block>
+</table>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+  function addNewSmartPhone() {
+    let producer = $("#producer").val();
+    let model = $("#model").val();
+    let price = $("#price").val();
+    let newSmartPhone = {
+      producer :producer,
+      model :model,
+      price : price,
+    };
+
+    // const u = new URLSearchParams(newSmartPhone).toString();
+    $.ajax({
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      type : "POST",
+      data :JSON.stringify(newSmartPhone),
+      url : "/smartphones/create",
+      success : successHandler
+    });
+    event.preventDefault();
+  };
+
+  function successHandler() {
+    $.ajax({
+      type: "GET",
+      url: "/smartphones",
+      success :function (data) {
+        let content ='<tr>\n'+
+                ' <td>Producer</td>\n'+
+                '<td>Model</td>\n'+
+                '<td>Price</td>\n'+
+                '<td>Delete</td>\n'+
+                '</tr>';
+        for (let i = 0; i < data.length; i++) {
+          content += getSmartPhone(data[i]);
+        }
+        document.getElementById('smartphoneList').innerHTML = content;
+      }
+    });
+  }
+
+  $(document).ready(function () {
+
+    $('.deleteSmartPhone').click(function (event) {
+
+      let a = $(this);
+      let smartPhoneId = a.attr("href");
+
+      $.ajax({
+        type: "DELETE",
+        url: `/smartphones/${smartPhoneId}`,
+        success: function (data) {
+          a.parent().parent().remove();
+        }
+      });
+      event.preventDefault();
+    });
+  })
+
+  function getSmartPhone(smartPhone) {
+    return `<tr><td>${smartPhone.producer}</td><td>${smartPhone.model}</td><td>${smartPhone.price}</td>`+
+            `<td><a class="deleteSmartPhone" href="${smartPhone.id}">Delete</a></td></tr>`
+  }
+</script>
+
+</body>
+</html>

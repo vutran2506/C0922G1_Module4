@@ -52,6 +52,21 @@ public class Cart {
         }
     }
 
+    public void  deleteProduct(Product product){
+        if (!checkItemInCart(product)){
+            products.put(product,1);
+        }else {
+            Map.Entry<Product,Integer> itemEntry = selectItemInCart(product);
+
+          products.remove(itemEntry.getKey());
+
+        }
+    }
+
+    public void deleteAll(){
+        products.clear();
+    }
+
     public void downValue(Product product) {
         Map.Entry<Product,Integer> entry = selectItemInCart(product);
         if (entry.getValue() == 1) {
