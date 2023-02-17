@@ -15,7 +15,7 @@ public class Category {
     @JsonBackReference
     @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
 
-    Set<Blog> blogSet;
+     private  Set<Blog> blogSet;
 
     public Category(int id, String category, Set<Blog> blogSet) {
         this.id = id;
