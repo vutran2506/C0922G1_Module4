@@ -1,0 +1,12 @@
+package com.example.furama.service.customer;
+
+import com.example.furama.model.customer.Customer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+
+public interface ICustomerService {
+    Page<Customer> getAllCustomer(Pageable pageable);
+    void save(Customer customer);
+}

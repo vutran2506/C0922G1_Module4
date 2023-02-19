@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="layout::head(title)"></div>
+</head>
+<body>
+<div th:replace="layout::nav">
+
+</div>
+<h1> Danh Sách Khách Hàng</h1><br>
+<div>
+    <button class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#addmodal">
+        <i class="bi bi-person-plus-fill">Thêm Mới Khách Hàng</i>
+    </button>
+</div>
+<p th:text="${mess}"></p>
+<div>
+    <table class="table table-stripe" >
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Họ Tên</th>
+            <th>Ngày Sinh</th>
+            <th>Giới Tính</th>
+            <th>CMND</th>
+            <th>Số Điện Thoại</th>
+            <th>Email</th>
+            <th>Địa Chỉ</th>
+            <th>Loại Khách</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer: ${customerList}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.dateOfBirth}"></td>
+            <td th:if="${customer.gender}">
+                <span>Nam</span>
+            </td>
+            <td th:unless="${customer.gender}">
+                <span>Nữ</span>
+            </td>
+            <td th:text="${customer.iDCard}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.address}"></td>
+            <td th:text="${customer.customerType.name}"></td>
+            <td>
+                <button class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#editModal"
+                        th:attr="onclick=|update('${customer.id}','${customer.name}','${customer.dateOfBirth}','${customer.gender}','${customer.iDCard}','${customer.phoneNumber}','${customer.email}','${customer.address}','${customer.customerType.id}')|">
+                    <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                Sửa</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                        th:attr="onclick=|deleteCustomer('${customer.id}','${customer.name}')|"><i
+                        class="fa-sharp fa-solid fa-user-slash"></i>Xoá</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a th:href="@{/customer(page=${customerList.number - 1})}"
+       th:if="${customerList.hasPrevious()}">
+        <button class="btn btn-success">Previous</button></a>
+
+    <span th:text="${customerList.number +1}"></span>/<span th:text="${customerList.totalPages}"></span>
+
+    <a th:href="@{/customer/(page=${customerList.number + 1})}"
+       th:if="${customerList.hasNext()}">
+        <button class="btn btn-success">Next</button></a>
+</div>
+<div th:replace="layout::footer"></div>
+
+<div class="modal" tabindex="-1" id="addmodal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm mới khách hàng <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form th:action="@{/save}" method="post" th:object="${customer}">
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Tên Khách Hàng: </label>
+                        <div class="col-sm-10">
+                            <input type="text" id="nameAdd" th:field="*{name}" class="form-control" name="name">
+
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Ngày Sinh</label>
+                        <div class="col-sm-10">
+                            <input type="date" id="dateOfBirthAdd" th:field="*{dateOfBirth}" class="form-control" name="birthday">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Giới Tính</label>
+                        <div class="col-sm-10" id="genderCheck">
+                            <input type="radio"   th:field="*{gender}" name="gender1" class="form-check-input"
+                                   value="true"> Nam
+                            <input type="radio"   th:field="*{gender}" style="margin-left: 25px" name="gender1"
+                                   class="form-check-input" value="false"> Nữ
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Số CMND</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="iDCardAdd" th:field="*{iDCard}" class="form-control" name="iDCard">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Số Điện Thoại </label>
+                        <div class="col-sm-10">
+                            <input th:field="*{phoneNumber}" id="phoneNumberAdd" type="number" class="form-control" name="phoneNumber">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Email </label>
+                        <div class="col-sm-10">
+                            <input type="email" th:field="*{email}" id="emailAdd" class="form-control" name="email">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Địa Chỉ </label>
+                        <div class="col-sm-10">
+                            <input type="text" id="addressAdd" th:field="*{address}" class="form-control" name="address">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Kiểu Khách</label>
+                        <div class="col-sm-10">
+                            <select th:field="*{customerType}" id="customerTypeAdd" class="form-select" name="customerType">
+                                <option th:each="type : ${customerType}" th:value="${type.id}"
+                                        th:text="${type.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Xác Nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

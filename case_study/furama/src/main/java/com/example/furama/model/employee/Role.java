@@ -1,4 +1,4 @@
-package com.example.furama.security;
+package com.example.furama.model.employee;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -12,9 +12,9 @@ public class Role {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy = "roles",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "roleSet",cascade = CascadeType.ALL)
     @JsonBackReference
-    private Set<User> users;
+    private Set<User> userSet;
 
     public Role() {
     }
@@ -35,12 +35,11 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<User> getUserSet() {
+        return userSet;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setUserSet(Set<User> userSet) {
+        this.userSet = userSet;
     }
-
 }

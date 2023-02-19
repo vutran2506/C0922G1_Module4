@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ce7e9b95-1671-47e2-bc70-b373cabd0455" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/customer/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/dto/customer/CustomerDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/repository/customer/ICustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/repository/customer/ICustomerTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/ICustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/impl/CustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/contract/ContractDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/contract/ContractDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/facility/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/facility/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/security/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/security/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/User.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2LxcExcw3xtHAjlkN2PlNGyr9Rm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CodeGym_Module_4/ss8_validator"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce7e9b95-1671-47e2-bc70-b373cabd0455" name="Changes" comment="" />
+      <created>1676816066507</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676816066507</updated>
+      <workItem from="1676816067907" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

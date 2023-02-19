@@ -33,8 +33,28 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private Set<Contract> contractSet;
 
+    @OneToOne
+    @JoinColumn(name = "username", referencedColumnName = "userName")
+    private User user;
+
     public int getId() {
         return id;
+    }
+
+    public Set<Contract> getContractSet() {
+        return contractSet;
+    }
+
+    public void setContractSet(Set<Contract> contractSet) {
+        this.contractSet = contractSet;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setId(int id) {

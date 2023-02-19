@@ -24,7 +24,7 @@ public class Facility {
     private RentType rentType;
 
     @ManyToOne
-    @JoinColumn(name = "facility_id", referencedColumnName = "id")
+    @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
     private FacilityType facilityType;
 
     @OneToMany(mappedBy = "facility")

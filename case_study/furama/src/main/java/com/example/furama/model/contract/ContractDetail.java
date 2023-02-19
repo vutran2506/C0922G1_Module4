@@ -12,7 +12,7 @@ public class ContractDetail {
     @JoinColumn(name = "contract_id", referencedColumnName = "id")
     private Contract contract;
     @ManyToOne
-    @JoinColumn(name = "attract_facility_id", referencedColumnName = "id")
+    @JoinColumn(name = "attach_facility_id", referencedColumnName = "id")
     private AttachFacility attachFacility;
 
 

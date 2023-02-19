@@ -1,14 +1,10 @@
-package com.example.furama.model.customer;
+package com.example.furama.dto.customer;
 
-import com.example.furama.model.contract.Contract;
 
-import javax.persistence.*;
-import java.util.Set;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
-@Entity
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CustomerDto implements Validator {
     private int id;
     private String name;
     private String dateOfBirth;
@@ -17,30 +13,8 @@ public class Customer {
     private String phoneNumber;
     private String email;
     private String address;
+    private int customerType;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_type", referencedColumnName = "id")
-    private CustomerType customerType;
-
-    @OneToMany(mappedBy = "customer")
-    private Set<Contract> contractSet;
-
-    public Customer() {
-    }
-
-    public Customer(int id, String name, String dateOfBirth, boolean gender, String iDCard, String phoneNumber, String email, String address, CustomerType customerType, Set<Contract> contractSet) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.iDCard = iDCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-        this.customerType = customerType;
-        this.contractSet = contractSet;
-    }
-    
     public int getId() {
         return id;
     }
@@ -105,11 +79,21 @@ public class Customer {
         this.address = address;
     }
 
-    public CustomerType getCustomerType() {
+    public int getCustomerType() {
         return customerType;
     }
 
-    public void setCustomerType(CustomerType customerType) {
+    public void setCustomerType(int customerType) {
         this.customerType = customerType;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }
