@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -24,18 +24,56 @@ public class CustomerController {
 
 
     @GetMapping("/customer")
-    public String getAllCustomers(Model model , @PageableDefault(size = 5, page = 0) Pageable pageable, CustomerDto customerDto){
+    public String getAllCustomers(
+            @RequestParam(defaultValue = "") String nameSearch,
+            @RequestParam(defaultValue = "") String emailSearch,
+            @RequestParam(defaultValue = "") String customerTypeSearch,
+            Model model, @PageableDefault(size = 5, page = 0) Pageable pageable, CustomerDto customerDto) {
         model.addAttribute("customerList", customerService.getAllCustomer(pageable));
         model.addAttribute("customerType", customerTypeService.getAll());
-        model.addAttribute("customer",new CustomerDto());
+        model.addAttribute("customer", new CustomerDto());
         return "/customer/list";
     }
-    @PostMapping("/save")
-    public String save (CustomerDto customerDto, RedirectAttributes requestAttributes){
+
+    @PostMapping("/saveCustomer")
+    public String save(CustomerDto customerDto, RedirectAttributes requestAttributes) {
         Customer customer = new Customer();
-        BeanUtils.copyProperties(customerDto,customer);
+        BeanUtils.copyProperties(customerDto, customer);
         customerService.save(customer);
-        requestAttributes.addFlashAttribute("mess","SuccessFully created");
+        requestAttributes.addFlashAttribute("mess", "SuccessFully created");
+        return "redirect:/customer";
+    }
+
+    @GetMapping("/deleteCustomer")
+    public String deleteCustomer(@RequestParam int id, RedirectAttributes redirectAttributes) {
+        Customer customer = customerService.findById(id);
+        if (customer == null) {
+            redirectAttributes.addFlashAttribute("mess", "Khách Hàng Không Tồn Tại");
+        }
+        customerService.save(customer);
+        redirectAttributes.addFlashAttribute("mess", "Khách Hàng Đã Được Xoá Thành Công");
+        return "redirect:/customer";
+
+    }
+
+    @GetMapping("/searchCustomer")
+    public String searchCustomer(@RequestParam(defaultValue = "") String nameSearch,
+                                 @RequestParam(defaultValue = "") String emailSearch,
+                                 @RequestParam(defaultValue = "") String customerTypeSearch,
+                                 RedirectAttributes redirectAttributes,
+                                 @PageableDefault(size = 3, page = 0) Pageable pageable, Model model){
+      model.addAttribute("customerList",customerService.searchCustomer(nameSearch, emailSearch, customerTypeSearch, pageable)) ;
+        model.addAttribute("customerType", customerTypeService.getAll());
+       redirectAttributes.addFlashAttribute("mess","Danh sách khách hàng cần tìm");
+       return "/customer/list";
+    }
+
+    @PostMapping("/updateCustomer")
+    public String update(CustomerDto customerDto, RedirectAttributes requestAttributes) {
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDto, customer);
+        customerService.save(customer);
+        requestAttributes.addFlashAttribute("mess", "SuccessFully update");
         return "redirect:/customer";
     }
 }

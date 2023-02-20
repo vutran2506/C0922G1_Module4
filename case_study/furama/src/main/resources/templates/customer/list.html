@@ -11,14 +11,27 @@
 </div>
 <h1> Danh Sách Khách Hàng</h1><br>
 <div>
+    <form th:action="@{/searchCustomer}" method="get">
+        <input type="text" name="nameSearch" placeholder="Nhập Tên Khách Hàng">
+        <input type="text" name="emailSearch" placeholder="Nhập Email Khách Hàng">
+        <select name="customerTypeSearch">
+            <option th:value="0">Type</option>
+            <option th:each="type:${customerType}"
+                    th:value="${type.id}" th:text="${type.name}"></option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+</div>
+<div>
     <button class="btn btn-success" data-bs-toggle="modal"
             data-bs-target="#addmodal">
-        <i class="bi bi-person-plus-fill">Thêm Mới Khách Hàng</i>
+        <h5>Thêm Mới Khách Hàng<i class="bi bi-person-plus-fill"></i></h5>
+
     </button>
 </div>
 <p th:text="${mess}"></p>
 <div>
-    <table class="table table-stripe" >
+    <table class="table table-stripe">
         <thead>
         <tr>
             <th>#</th>
@@ -39,10 +52,10 @@
             <td th:text="${customer.id}"></td>
             <td th:text="${customer.name}"></td>
             <td th:text="${customer.dateOfBirth}"></td>
-            <td th:if="${customer.gender}">
+            <td th:if="${customer.gender == true}">
                 <span>Nam</span>
             </td>
-            <td th:unless="${customer.gender}">
+            <td th:if="${customer.gender == false}">
                 <span>Nữ</span>
             </td>
             <td th:text="${customer.iDCard}"></td>
@@ -53,15 +66,19 @@
             <td>
                 <button class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#editModal"
-                        th:attr="onclick=|update('${customer.id}','${customer.name}','${customer.dateOfBirth}','${customer.gender}','${customer.iDCard}','${customer.phoneNumber}','${customer.email}','${customer.address}','${customer.customerType.id}')|">
+                        th:attr="onclick=|updateCustomer('${customer.id}','${customer.name}','${customer.dateOfBirth}',
+                        '${customer.gender}','${customer.iDCard}','${customer.phoneNumber}',
+                        '${customer.email}','${customer.address}','${customer.customerType.id}')|">
                     <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-                Sửa</button>
+                    Sửa
+                </button>
             </td>
             <td>
                 <button class="btn btn-danger" data-bs-toggle="modal"
                         data-bs-target="#deleteModal"
                         th:attr="onclick=|deleteCustomer('${customer.id}','${customer.name}')|"><i
-                        class="fa-sharp fa-solid fa-user-slash"></i>Xoá</button>
+                        class="fa-sharp fa-solid fa-user-slash"></i>Xoá
+                </button>
             </td>
         </tr>
         </tbody>
@@ -70,15 +87,19 @@
 <div>
     <a th:href="@{/customer(page=${customerList.number - 1})}"
        th:if="${customerList.hasPrevious()}">
-        <button class="btn btn-success">Previous</button></a>
+        <button class="btn btn-success">Previous</button>
+    </a>
 
     <span th:text="${customerList.number +1}"></span>/<span th:text="${customerList.totalPages}"></span>
 
     <a th:href="@{/customer/(page=${customerList.number + 1})}"
        th:if="${customerList.hasNext()}">
-        <button class="btn btn-success">Next</button></a>
+        <button class="btn btn-success">Next</button>
+    </a>
 </div>
 <div th:replace="layout::footer"></div>
+
+<!--Moddel Thêm Mới-->
 
 <div class="modal" tabindex="-1" id="addmodal">
     <div class="modal-dialog modal-xl">
@@ -89,7 +110,7 @@
             </div>
             <div class="modal-body">
 
-                <form th:action="@{/save}" method="post" th:object="${customer}">
+                <form th:action="@{/saveCustomer}" method="post" th:object="${customer}">
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Tên Khách Hàng: </label>
                         <div class="col-sm-10">
@@ -100,15 +121,16 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Ngày Sinh</label>
                         <div class="col-sm-10">
-                            <input type="date" id="dateOfBirthAdd" th:field="*{dateOfBirth}" class="form-control" name="birthday">
+                            <input type="date" id="dateOfBirthAdd" th:field="*{dateOfBirth}" class="form-control"
+                                   name="birthday">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Giới Tính</label>
                         <div class="col-sm-10" id="genderCheck">
-                            <input type="radio"   th:field="*{gender}" name="gender1" class="form-check-input"
+                            <input type="radio" th:field="*{gender}" name="gender1" class="form-check-input"
                                    value="true"> Nam
-                            <input type="radio"   th:field="*{gender}" style="margin-left: 25px" name="gender1"
+                            <input type="radio" th:field="*{gender}" style="margin-left: 25px" name="gender1"
                                    class="form-check-input" value="false"> Nữ
                         </div>
                     </div>
@@ -121,7 +143,8 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Số Điện Thoại </label>
                         <div class="col-sm-10">
-                            <input th:field="*{phoneNumber}" id="phoneNumberAdd" type="number" class="form-control" name="phoneNumber">
+                            <input th:field="*{phoneNumber}" id="phoneNumberAdd" type="number" class="form-control"
+                                   name="phoneNumber">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -133,13 +156,15 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Địa Chỉ </label>
                         <div class="col-sm-10">
-                            <input type="text" id="addressAdd" th:field="*{address}" class="form-control" name="address">
+                            <input type="text" id="addressAdd" th:field="*{address}" class="form-control"
+                                   name="address">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Kiểu Khách</label>
                         <div class="col-sm-10">
-                            <select th:field="*{customerType}" id="customerTypeAdd" class="form-select" name="customerType">
+                            <select th:field="*{customerType}" id="customerTypeAdd" class="form-select"
+                                    name="customerType">
                                 <option th:each="type : ${customerType}" th:value="${type.id}"
                                         th:text="${type.name}"></option>
                             </select>
@@ -154,5 +179,111 @@
         </div>
     </div>
 </div>
+
+<!--Modal Xoá-->
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form th:action="@{/deleteCustomer}" method="get">
+                <div class="modal-body">
+                    <input hidden type="text" th:id="id" th:name="id">
+                    <span>You Want To Delete: </span><span id="name"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--MODAL UPDATE-->
+<div class="modal fade"
+     id="editModal" tabindex="-1" aria-labelledby="exampleModalLabelUpdate"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="justify-content-center modal-title fs-5" id="exampleModalLabelUpdate"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/updateCustomer}" method="post" th:object="${customer}">
+                    <fieldset>
+                        <legend>Sửa Thông Tin Khách Hàng</legend>
+                        <input th:field="*{id}" hidden id="updateId" name="id">
+                        Tên Khách Hàng: <input type="text" th:field="*{name}" th:id="updateName"/>
+
+                        <br/>
+                        Ngày sinh: <input type="date" th:field="*{dateOfBirth}" th:id="updateBirthOfDay"/>
+                        <br/>
+                        Giới tính: <select th:field="*{gender}" id="updateGender" >
+                        <option th:value="true">
+                            Nam
+                        </option>
+                        <option th:value="false">
+                            Nữ
+                        </option>
+                    </select>
+                        <br/>
+                        Thẻ căn cước: <input type="text" th:field="*{iDCard}" th:id="updateIdCard"/>
+                        <br/>
+                        Số điện thoại: <input type="text" th:field="*{phoneNumber}" id="updatePhoneNumber"/>
+
+
+                        <br/>
+                        Email: <input type="text" th:field="*{email}" id="updateEmail"/>
+
+
+                        <br/>
+                        <br/>
+                        Địa chỉ: <input type="text" th:field="*{address}" id="updateAddress"/>
+                        <br/>
+                        Loại khách hàng: <select th:field="*{customerType}" id="updateCustomerType">
+                        <option th:each="type: ${customerType}"
+                                th:text="${type.getName()}"
+                                th:value="${type.getId()}"></option>
+                        >
+                    </select>
+                    </fieldset>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                th:attr="onclick=|exampleModalUpdate()|">Đóng
+                        </button>
+                        <button type="submit" class="btn btn-primary">Sửa thng tin khách hàng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+<script>
+    function deleteCustomer(id, name) {
+        document.getElementById("id").value = id;
+        document.getElementById("name").innerText = name;
+    }
+
+    function updateCustomer(id, name, dateOfBirth, gender, iDCard,
+                            phoneNumber, email,
+                            address, customerType) {
+        document.getElementById("updateId").value = id;
+        document.getElementById("updateName").value = name;
+        document.getElementById("updateBirthOfDay").value = dateOfBirth;
+        document.getElementById("updateGender").value = gender;
+        document.getElementById("updateIdCard").value = iDCard;
+        document.getElementById("updatePhoneNumber").value = phoneNumber;
+        document.getElementById("updateEmail").value = email;
+        document.getElementById("updateAddress").value = address;
+        document.getElementById("updateCustomerType").value = customerType;
+    }
+
+</script>
 </html>

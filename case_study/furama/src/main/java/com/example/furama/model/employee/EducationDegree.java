@@ -8,6 +8,7 @@ public class EducationDegree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length = 255,nullable = false)
     private String name;
     @OneToMany(mappedBy = "educationDegree")
     private Set<Employee> employeeSet;

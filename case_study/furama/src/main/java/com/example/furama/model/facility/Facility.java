@@ -10,14 +10,23 @@ public class Facility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length = 255,nullable = false)
     private String name;
+    @Column(nullable = false)
     private Integer area;
+    @Column(nullable = false)
     private Double cost;
+    @Column(nullable = false)
     private Double maxPeople;
+    @Column(length = 255,nullable = false)
     private String standardRoom;
+    @Column(length = 255,nullable = false)
     private String descriptionOtherConvenience;
+    @Column(nullable = false)
     private Double poolArea;
+    @Column(nullable = false)
     private Integer numberOfFloor;
+    @Column(length = 255,nullable = false)
     private String facilityFree;
     @ManyToOne
     @JoinColumn( name = "rent_type_id", referencedColumnName = "id")

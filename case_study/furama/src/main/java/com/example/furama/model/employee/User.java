@@ -1,5 +1,7 @@
 package com.example.furama.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -7,7 +9,10 @@ import java.util.Set;
 @Entity
 public class User {
     @Id
+    @Column(length = 255,nullable = false)
     private String username;
+    @Column(length = 255,nullable = false)
+    @JsonIgnore
     private String password;
 
     @ManyToMany()

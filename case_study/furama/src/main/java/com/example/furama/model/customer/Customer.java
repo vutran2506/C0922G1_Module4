@@ -10,12 +10,19 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length = 255,nullable = false)
     private String name;
+    @Column(length = 255,nullable = false)
     private String dateOfBirth;
+    @Column(nullable = false)
     private boolean gender;
+    @Column(length = 255,nullable = false,unique = true)
     private String iDCard;
+    @Column(length = 255,nullable = false,unique = true)
     private String phoneNumber;
+    @Column(length = 255,nullable = false,unique = true)
     private String email;
+    @Column(length = 255,nullable = false)
     private String address;
 
     @ManyToOne
@@ -28,19 +35,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String name, String dateOfBirth, boolean gender, String iDCard, String phoneNumber, String email, String address, CustomerType customerType, Set<Contract> contractSet) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.iDCard = iDCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-        this.customerType = customerType;
-        this.contractSet = contractSet;
-    }
-    
+
     public int getId() {
         return id;
     }

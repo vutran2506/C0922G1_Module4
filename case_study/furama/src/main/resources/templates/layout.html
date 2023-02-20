@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title th:text="${title}">Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css">
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
@@ -22,10 +21,10 @@
 <div th:fragment="header">
     <div class="row modalbg">
         <ul class="nav justify-content-center">
-            <li  class="nav-item " style="margin-left: 100px">
+            <li  class="nav-item " style="margin-left: 50px">
                 <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" height="100" width="75">
             </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li  class="nav-item " style="margin-left: 100px">
+            <li  class="nav-item " style="margin-left: 50px">
                 <div class="card" style="width: 8rem;height: 6rem">
                     <img src="https://truevaluevietnam.com/wp-content/uploads/2015/10/TA_brand_logo.png" height="55"
                          class="card-img-top" alt="...">
@@ -34,20 +33,21 @@
                     </div>
                 </div>
             </li>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li  style="margin-left: 100px"  class="nav-item ">
+            <li  style="margin-left: 50px"  class="nav-item ">
                 <p style="display: inline">
-                    103 - 105 Vo Nguyen Giap Street, Khue <br>
-                    My Ward, Ngu Hanh Son District, Danang <br>
-                    City, Vietnam <br>
-                    7,0 km from Danang Airport
+                    103 - 105 Đường Võ Nguyên Giáp, Phường  Mỹ Khuê,<br>
+                    Quận Ngũ Hành Sơn,  Thành Phố Đà Nẵng, Việt Nam <br>
+                     <br>
+                    Cách sân bay Đà Nẵng 7km.
                 </p>
             </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!--            <li class="nav-item " style="margin-top: 30px;margin-left: 100px">-->
-<!--                <span class="text-danger" th:text="${#authentication.getPrincipal().getUsername()}"> </span>-->
-<!--                <br> <a href="/logout" class="btn btn-outline-danger">Logout</a>-->
-<!--                <p>84-236-3847 333/888 <br>-->
-<!--                    reservation@furamavietnam.com</p>-->
-<!--            </li>-->
+            <li class="nav-item " style="margin-top: 30px;margin-left: 50px">
+                <p>84-236-3847 333/888 <br>
+                    reservation@furamavietnam.com</p>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item " style="margin-top: 30px;margin-left: 50px">
+                <p>Trần Ngọc Vũ</p>
+            </li>
         </ul>
     </div>
 </div>
@@ -55,11 +55,11 @@
 <div th:fragment="nav" class="row">
     <nav class="navbar navbar-light" style="background-color: teal">
         <div class="container-fluid">
-                  <a class="navbar-brand" href="@{/">Home</a>
-            <a class="navbar-brand" th:href="@{/employee}">Employee</a>
-            <a class="navbar-brand" th:href="@{/customer}">Customer</a>
-            <a class="navbar-brand" th:href="@{/facility}">Service</a>
-            <a class="navbar-brand" th:href="@{/contract}">Contract</a>
+                  <a class="navbar-brand" th:href="@{/}">Home</a>
+            <a class="navbar-brand" th:href="@{/employee}">Nhân viên</a>
+            <a class="navbar-brand" th:href="@{/customer}">Khách Hàng</a>
+            <a class="navbar-brand" th:href="@{/facility}">Dịch Vụ</a>
+            <a class="navbar-brand" th:href="@{/contract}">Cơ Sở Vật Chất</a>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-light" type="submit">Search</button>
@@ -71,23 +71,22 @@
     <div style="background: cadetblue;margin-top: 80px" class="row">
         <div class="col-1" style="background: cadetblue"></div>
         <div class="col-3" style="background: #bcbebf">
-            <h1 style="color: darkkhaki;text-align: center;margin-top: 30px">How to Get to Us</h1>
-            <p style="text-align: center;text-align: left">Furama is a premier base for exploring one of<br> Asia's most
-                exciting new destinations. Just a<br> short drive
-                from Danang lay four UNESCO-listed<br> World Heritage Sites:</p>
-            <h1><a href="#" class="btn" style="color: white;background: teal"><i class="fa-sharp fa-solid fa-location-dot"> &ensp;View On Map</i></a>
+            <h1 style="color: darkkhaki;text-align: center;margin-top: 30px">Hướng Dẫn Di Chuyển</h1>
+            <p style="text-align: center;text-align: left">Khu nghỉ dưỡng Furama là cơ sở hàng đầu để <br>
+                khám phá một trong những điểm đến hấp dẫn <br>
+                nhất Châu Á. Chỉ cách Đà Nẵng một quãng lái xe<br>
+                ngắn là bốn Di sản Văn hóa Thế giới được UNESCO công nhận:</p>
+            <h1><a href="#" class="btn" style="color: white;background: teal"><i class="fa-sharp fa-solid fa-location-dot"> &ensp;Xem Trên Bản Đồ</i></a>
             </h1>
-            <h2 style="color: darkkhaki">Local Places</h2>
+            <h2 style="color: darkkhaki">Địa Điểm</h2>
             <br>
-            <p><b>1. The former imperial city of HUE &ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;2 hours</b></p>
+            <p><b>1. Cố đô huế &ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;2 tiếng</b></p>
             <hr>
-            <p><b>2. The ancient Hoi An &ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;30
-                minutes</b></p>
+            <p><b>2. Phố cổ Hội An &ensp;&ensp;&ensp; &ensp;&ensp;&nbsp;30 phút</b></p>
             <hr>
-            <p><b>3. Champa civilization, My Son &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;90 minutes</b></p>
+            <p><b>3. Thánh địa Mỹ Sơn &ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;90 phút</b></p>
             <hr>
-            <p><b>4. Phong Nha Caves &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                3 hours</b></p>
+            <p><b>4. Động Phong Nha &ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;3 tiếng</b></p>
         </div>
         <div class="col-3" style="margin-top: 30px;text-align: center">
             <a style="color: #5c636a;text-decoration: none" href="">News</a>

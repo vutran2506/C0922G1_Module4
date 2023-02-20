@@ -10,6 +10,7 @@ public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(length = 255,nullable = false)
     private String name;
 
     public Position() {

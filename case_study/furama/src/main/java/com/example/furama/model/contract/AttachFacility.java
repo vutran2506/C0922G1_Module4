@@ -8,9 +8,13 @@ public class AttachFacility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private String name;
+    @Column(length = 255,nullable = false)
     private double cost;
+    @Column(length = 255,nullable = false)
     private String unit;
+    @Column(length = 255,nullable = false)
     private String status;
     @OneToMany(mappedBy = "attachFacility")
     private Set<ContractDetail> contractDetailSet;

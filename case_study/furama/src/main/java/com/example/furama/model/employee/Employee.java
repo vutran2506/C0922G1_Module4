@@ -10,12 +10,19 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length = 255, nullable = false)
     private String name;
+    @Column(length = 255, nullable = false)
     private String dateOfBirth;
+    @Column(unique = true, nullable = false, length = 12)
     private String iDCard;
+    @Column(length = 255, nullable = false)
     private double salary;
+    @Column(length = 255, nullable = false,unique = true)
     private String phoneNumber;
+    @Column(length = 255, nullable = false,unique = true)
     private String email;
+    @Column(length = 255, nullable = false)
     private String address;
 
     @ManyToOne
@@ -27,7 +34,7 @@ public class Employee {
     private EducationDegree educationDegree;
 
     @ManyToOne
-    @JoinColumn (name = "division_id", referencedColumnName = "id")
+    @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
 
     @OneToMany(mappedBy = "employee")

@@ -13,8 +13,11 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length = 255,nullable = false)
     private String startDate;
+    @Column(length = 255,nullable = false)
     private String endDate;
+    @Column(nullable = false)
     private double deposit;
 
     @ManyToOne

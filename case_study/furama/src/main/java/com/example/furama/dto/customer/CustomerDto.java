@@ -1,6 +1,7 @@
 package com.example.furama.dto.customer;
 
 
+import com.example.furama.model.customer.CustomerType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -13,7 +14,11 @@ public class CustomerDto implements Validator {
     private String phoneNumber;
     private String email;
     private String address;
-    private int customerType;
+    private CustomerType customerType;
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
+    }
 
     public int getId() {
         return id;
@@ -79,12 +84,8 @@ public class CustomerDto implements Validator {
         this.address = address;
     }
 
-    public int getCustomerType() {
+    public CustomerType getCustomerType() {
         return customerType;
-    }
-
-    public void setCustomerType(int customerType) {
-        this.customerType = customerType;
     }
 
     @Override
