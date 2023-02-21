@@ -9,17 +9,25 @@
 <div th:replace="layout::nav">
 
 </div>
-<h1> Danh Sách Khách Hàng</h1><br>
+<h1 style="text-align: center"> Danh Sách Khách Hàng</h1><br>
 <div>
-    <form th:action="@{/searchCustomer}" method="get">
-        <input type="text" name="nameSearch" placeholder="Nhập Tên Khách Hàng">
-        <input type="text" name="emailSearch" placeholder="Nhập Email Khách Hàng">
-        <select name="customerTypeSearch">
-            <option th:value="0">Type</option>
-            <option th:each="type:${customerType}"
-                    th:value="${type.id}" th:text="${type.name}"></option>
-        </select>
-        <input type="submit" value="Search">
+    <form th:action="@{/customer}" method="get">
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2"><input class="form-control me-2" type="text" name="nameSearch"
+                                         placeholder="Nhập Tên Khách Hàng"></div>
+            <div class="col-sm-2"><input class="form-control me-2" type="text" name="emailSearch"
+                                         placeholder="Nhập Email Khách Hàng"></div>
+            <div class="col-sm-2"><select class="form-control me-2" name="customerTypeSearch">
+                <option th:value="0">Type</option>
+                <option th:each="type:${customerType}"
+                        th:value="${type.id}" th:text="${type.name}"></option>
+            </select></div>
+            <div class="col-sm-1">
+                <button class="btn btn-outline-light bg bg-success" type="submit">Search</button></div>
+        </div>
+
+
     </form>
 </div>
 <div>
@@ -85,14 +93,20 @@
     </table>
 </div>
 <div>
-    <a th:href="@{/customer(page=${customerList.number - 1})}"
+    <a th:href="@{/customer(page=${customerList.number - 1},
+     nameSearch=${name},
+     emailSearch = ${email},
+     customerTypeSearch=${customerTypeSearch} )}"
        th:if="${customerList.hasPrevious()}">
         <button class="btn btn-success">Previous</button>
     </a>
 
     <span th:text="${customerList.number +1}"></span>/<span th:text="${customerList.totalPages}"></span>
 
-    <a th:href="@{/customer/(page=${customerList.number + 1})}"
+    <a th:href="@{/customer(page=${customerList.number + 1} ,
+     nameSearch=${name},
+      emailSearch = ${email},
+      customerTypeSearch=${customerTypeSearch})}"
        th:if="${customerList.hasNext()}">
         <button class="btn btn-success">Next</button>
     </a>
@@ -224,7 +238,7 @@
                         <br/>
                         Ngày sinh: <input type="date" th:field="*{dateOfBirth}" th:id="updateBirthOfDay"/>
                         <br/>
-                        Giới tính: <select th:field="*{gender}" id="updateGender" >
+                        Giới tính: <select th:field="*{gender}" id="updateGender">
                         <option th:value="true">
                             Nam
                         </option>

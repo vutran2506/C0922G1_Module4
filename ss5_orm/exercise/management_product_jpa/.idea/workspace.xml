@@ -10,38 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47e0f814-0a97-4913-973b-99736e1feace" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/Currency_conversion/demo/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/Currency_conversion/demo/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/dictionary_app/dictionary/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercise/dictionary_app/dictionary/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/configuration/AppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/IStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/IStudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/repository/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/IStudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/java/com/example/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/demo1/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/java/com/example/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/java/com/example/controller/MailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/practice_check_mail/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/java/com/example/controller/TimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/java/com/example/controller/TimeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/the_world_clock/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_databinding/exercise/exercise/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/IProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/IProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/IProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_thymeleaf/exercise/exercise/src/main/java/com/example/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/java/com/example/exercise/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/java/com/example/exercise/controller/BlogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss6_spring_data_jpa/exercise/exercise/src/main/resources/templates/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/controller/facility/FacilityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/dto/customer/FacilityDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/repository/facility/IFacilityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/repository/facility/IFacilityTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/repository/facility/IRentTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/service/facility/IFacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/service/facility/IFacilityTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/service/facility/IRentTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/service/facility/impl/FacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/service/facility/impl/FacilityTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/java/com/example/furama/service/facility/impl/RentTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama/src/main/resources/templates/facility/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,23 +73,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CodeGym_Module_4/ss6_spring_data_jpa/exercise/exercise&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b5ed641b1c87732915ef012538e36b4c&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CodeGym_Module_4/ss5_orm/exercise/management_product_jpa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "b5ed641b1c87732915ef012538e36b4c"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CodeGym_Module_4\ss5_orm\exercise\management_product_jpa\src\main\java\com\example\configuration" />
@@ -221,6 +201,7 @@
       <workItem from="1675740736212" duration="6695000" />
       <workItem from="1675773328003" duration="616000" />
       <workItem from="1675777897748" duration="254000" />
+      <workItem from="1676901575673" duration="24000" />
     </task>
     <servers />
   </component>

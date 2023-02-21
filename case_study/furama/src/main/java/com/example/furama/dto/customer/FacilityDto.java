@@ -1,12 +1,13 @@
-package com.example.furama.model.facility;
+package com.example.furama.dto.customer;
 
 import com.example.furama.model.contract.Contract;
+import com.example.furama.model.facility.FacilityType;
+import com.example.furama.model.facility.RentType;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-public class Facility {
+public class FacilityDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -18,26 +19,41 @@ public class Facility {
     private Double cost;
     @Column(nullable = false)
     private Double maxPeople;
-    @Column(length = 255,nullable = true)
+    @Column(length = 255,nullable = false)
     private String standardRoom;
-    @Column(length = 255,nullable = true)
+    @Column(length = 255,nullable = false)
     private String descriptionOtherConvenience;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private Double poolArea;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private Integer numberOfFloor;
-    @Column(length = 255,nullable = true)
+    @Column(length = 255,nullable = false)
     private String facilityFree;
-    @ManyToOne
-    @JoinColumn( name = "rent_type_id", referencedColumnName = "id")
+
     private RentType rentType;
 
-    @ManyToOne
-    @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
     private FacilityType facilityType;
 
-    @OneToMany(mappedBy = "facility")
     private Set<Contract> contractSet;
+
+    public FacilityDto() {
+    }
+
+    public FacilityDto(int id, String name, Integer area, Double cost, Double maxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloor, String facilityFree, RentType rentType, FacilityType facilityType, Set<Contract> contractSet) {
+        this.id = id;
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+        this.standardRoom = standardRoom;
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+        this.poolArea = poolArea;
+        this.numberOfFloor = numberOfFloor;
+        this.facilityFree = facilityFree;
+        this.rentType = rentType;
+        this.facilityType = facilityType;
+        this.contractSet = contractSet;
+    }
 
     public int getId() {
         return id;
@@ -133,5 +149,13 @@ public class Facility {
 
     public void setFacilityType(FacilityType facilityType) {
         this.facilityType = facilityType;
+    }
+
+    public Set<Contract> getContractSet() {
+        return contractSet;
+    }
+
+    public void setContractSet(Set<Contract> contractSet) {
+        this.contractSet = contractSet;
     }
 }

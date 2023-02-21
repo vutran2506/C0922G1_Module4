@@ -11,9 +11,12 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 public class CustomerController {
@@ -27,16 +30,25 @@ public class CustomerController {
     public String getAllCustomers(
             @RequestParam(defaultValue = "") String nameSearch,
             @RequestParam(defaultValue = "") String emailSearch,
-            @RequestParam(defaultValue = "") String customerTypeSearch,
-            Model model, @PageableDefault(size = 5, page = 0) Pageable pageable, CustomerDto customerDto) {
-        model.addAttribute("customerList", customerService.getAllCustomer(pageable));
+            @RequestParam(defaultValue = "0") int customerTypeSearch,
+            Model model, @PageableDefault(size = 5, page = 0) Pageable pageable, CustomerDto customerDto, RedirectAttributes redirectAttributes) {
+        if (customerTypeSearch ==0){
+            model.addAttribute("customerList",customerService.searchCustomerNameAndEmail(nameSearch,emailSearch,pageable));
+        }else {
+            model.addAttribute("customerList",customerService.searchCustomer(nameSearch, emailSearch, customerTypeSearch, pageable)) ;
+        }
+        model.addAttribute("name", nameSearch);
+        model.addAttribute("email", emailSearch);
+        model.addAttribute("customerTypeSearch", customerTypeSearch);
         model.addAttribute("customerType", customerTypeService.getAll());
         model.addAttribute("customer", new CustomerDto());
+        redirectAttributes.addFlashAttribute("mess","Danh sách khách hàng cần tìm");
         return "/customer/list";
     }
 
     @PostMapping("/saveCustomer")
     public String save(CustomerDto customerDto, RedirectAttributes requestAttributes) {
+        List<Customer> list = customerService.
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);
         customerService.save(customer);
@@ -56,17 +68,17 @@ public class CustomerController {
 
     }
 
-    @GetMapping("/searchCustomer")
-    public String searchCustomer(@RequestParam(defaultValue = "") String nameSearch,
-                                 @RequestParam(defaultValue = "") String emailSearch,
-                                 @RequestParam(defaultValue = "") String customerTypeSearch,
-                                 RedirectAttributes redirectAttributes,
-                                 @PageableDefault(size = 3, page = 0) Pageable pageable, Model model){
-      model.addAttribute("customerList",customerService.searchCustomer(nameSearch, emailSearch, customerTypeSearch, pageable)) ;
-        model.addAttribute("customerType", customerTypeService.getAll());
-       redirectAttributes.addFlashAttribute("mess","Danh sách khách hàng cần tìm");
-       return "/customer/list";
-    }
+//    @GetMapping("/searchCustomer")
+//    public String searchCustomer(@RequestParam(defaultValue = "") String nameSearch,
+//                                 @RequestParam(defaultValue = "") String emailSearch,
+//                                 @RequestParam(defaultValue = "") String customerTypeSearch,
+//                                 RedirectAttributes redirectAttributes,
+//                                 @PageableDefault(size = 3, page = 0) Pageable pageable, Model model){
+//      model.addAttribute("customerList",customerService.searchCustomer(nameSearch, emailSearch, customerTypeSearch, pageable)) ;
+//        model.addAttribute("customerType", customerTypeService.getAll());
+//       redirectAttributes.addFlashAttribute("mess","Danh sách khách hàng cần tìm");
+//       return "/customer/list";
+//    }
 
     @PostMapping("/updateCustomer")
     public String update(CustomerDto customerDto, RedirectAttributes requestAttributes) {
@@ -76,4 +88,5 @@ public class CustomerController {
         requestAttributes.addFlashAttribute("mess", "SuccessFully update");
         return "redirect:/customer";
     }
+
 }

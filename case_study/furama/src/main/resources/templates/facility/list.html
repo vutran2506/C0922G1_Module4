@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="layout::head(title)"></div>
+    <style>
+        body {
+            background-image: url(https://tse4.mm.bing.net/th?id=OIP.xy5yVom_yu_1O_96KYeSFQHaEK&pid=Api&P=0);
+            background-size: cover;
+        }
+    </style>
+</head>
+<div th:replace="layout::header"></div>
+<body>
+<div th:replace="layout::nav"></div>
+<h1 style="text-align: center;color: red;">Danh Sách Dịch Vụ</h1>
+<div>
+    <form th:action="@{/facility}">
+        <div class="row">
+            <div class="col-sm-2"><div>
+                <button class="btn btn-success">
+                    <a style="text-decoration: none" th:href="@{/facility/create}">Thêm Mới Dịch Vụ<i
+                            class="bi bi-person-plus-fill"></i></a>
+                </button>
+            </div></div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2">
+                <input class="form-control me-2" type="text" name="nameSearch" placeholder="Nhập tên dịch vụ">
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" name="facilityTypeSearch">
+                    <option value="">Chọn Loại Dịch Vụ</option>
+                    <option th:each="type:${facilityType}"
+                            th:value="${type.id}"
+                            th:text="${type.name}"></option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-outline-light bg bg-success" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+<br>
+<div>
+    <p th:text="${mess}"></p>
+    <table class="table table-primary">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên Dịch Vụ</th>
+            <th>Diện Tích</th>
+            <th>Đơn Giá</th>
+            <th>Số Người(Max)</th>
+            <th>Kiểu Thuê</th>
+            <th>Loại Dịch Vụ</th>
+            <th>Tiêu Chuẩn Phòng</th>
+            <th>Mô Tả</th>
+            <th>Diện Tích Hồ Bơi</th>
+            <th>Số Tầng</th>
+            <th>Dịch Vụ Miễn Phí</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="facility  : ${facilityList}">
+            <td th:text="${facility.id}"></td>
+            <td th:text="${facility.name}"></td>
+            <td th:text="${facility.area}"></td>
+            <td th:text="${facility.cost}"></td>
+            <td th:text="${facility.maxPeople}"></td>
+            <td th:text="${facility.rentType.name}"></td>
+            <td th:text="${facility.facilityType.name}"></td>
+            <td th:text="${facility.standardRoom}"></td>
+            <td th:text="${facility.descriptionOtherConvenience}"></td>
+            <td th:text="${facility.poolArea}"></td>
+            <td th:text="${facility.numberOfFloor}"></td>
+            <td th:text="${facility.facilityFree}"></td>
+            <td>
+                <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editmodal">
+                    <a th:href="@{/facility/{id}/edit(id=${facility.id})}"> Sửa
+<!--                        <i class="fa-sharp fa-solid fa-hammer"></i>-->
+                    </a>
+
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleleFacility"
+                        th:attr="onclick=|deleteFacility('${facility.id}','${facility.name}')|">Xoá
+<!--                     <i class="fa-sharp fa-solid fa-store-slash"></i>-->
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div>
+    <a th:href="@{/facility(page=${facilityList.number - 1})}"
+       th:if="${facilityList.hasPrevious()}">
+        <button class="btn btn-success">Previous</button>
+    </a>
+
+    <span th:text="${facilityList.number +1}"></span>/<span th:text="${facilityList.totalPages}"></span>
+
+    <a th:href="@{/facility/(page=${facilityList.number + 1})}"
+       th:if="${facilityList.hasNext()}">
+        <button class="btn btn-success">Next</button>
+    </a>
+</div>
+</body>
+
+<!--Modal Xoá-->
+<div class="modal fade" id="deleleFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form th:action="@{/deleteFacility}" method="get">
+                <div class="modal-body">
+                    <input hidden type="text" th:id="id" th:name="id">
+                    <span>You Want To Delete: </span><span id="name"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function deleteFacility(id,name) {
+        document.getElementById("id").value = id;
+        document.getElementById("name").innerText = name;
+    }
+</script>
+
+</html>

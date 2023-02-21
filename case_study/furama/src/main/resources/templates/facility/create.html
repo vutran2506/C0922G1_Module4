@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="layout::head(title)"></div>
+
+</head>
+<div th:replace="layout::header"></div>
+<body>
+<h1 style="text-align: center; color: green;">Thêm Dịch Vụ Mới</h1><br>
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <table>
+            <form th:action="@{/facility/save}" method="post" th:object="${facility}">
+                <div class=" row">
+                    <label>Loại Dịch Vụ :</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" onchange="addFacility              ()" id="selectValue"
+                                th:field="*{facilityType}">
+                            <option th:value="0">Chọn Loại Dịch Vụ</option>
+                            <option th:each="item:${facilityTypeList}" th:text="${item.name}"
+                                    th:value="${item.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class=" row">
+                    <label>Tên Dịch Vụ:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" th:field="*{name}">
+                    </div>
+                </div>
+                <br>
+                <div class=" row">
+                    <label>Diện Tích:</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" th:field="*{area}">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label>Chi Phí Thuê:</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" th:field="*{cost}">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label>Số Người Tối Đa:</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" th:field="*{maxPeople}">
+                    </div>
+                </div>
+                <br>
+                <div class=" row">
+                    <label>Kiểu Thuê:</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" th:field="*{rentType}">
+                            <option th:value="0">Chọn Kiểu Thuê</option>
+                            <option th:each="item:${renTypeList}" th:text="${item.name}"
+                                    th:value="${item.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <div class=" row" id="standardAdd">
+                    <label>Tiêu Chuẩn Phòng:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" th:field="*{standardRoom}">
+                    </div>
+                </div>
+                <br>
+                <div class=" row" id="descriptionAdd">
+                    <label>Mô Tả Khác:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" th:field="*{descriptionOtherConvenience}">
+                    </div>
+                </div>
+                <br>
+                <div class="row" id="poolAreaAdd">
+                    <label>Diện Tích Hồ Bơi:</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" th:field="*{poolArea}">
+                    </div>
+                </div>
+                <br>
+                <div class=" row" id="numberOfFloorAdd">
+                    <label>Số Tầng:</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" th:field="*{numberOfFloor}">
+                    </div>
+                </div>
+                <br>
+                <div class=" row " id="addFreeService">
+                    <label>Dịch Vụ Miễn Phí:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" th:field="*{facilityFree}">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <input class="btn btn-primary" type="submit" value="Thêm Mới">
+                    </div>
+                </div>
+            </form>
+        </table>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+</body>
+<script>
+    function addFacility() {
+        let value = document.getElementById("selectValue").value;
+        switch (value) {
+            case "1":
+                document.getElementById("standardAdd").style.display = 'block';
+                document.getElementById("descriptionAdd").style.display = 'block';
+                document.getElementById("addFreeService").style.display = 'none'
+                document.getElementById("numberOfFloorAdd").style.display = 'block';
+                document.getElementById("poolAreaAdd").style.display = 'block';
+                document.getElementById("selectValue").value = 1;
+                break
+            case "2":
+                document.getElementById("standardAdd").style.display = 'block';
+                document.getElementById("descriptionAdd").style.display = 'block';
+                document.getElementById("addFreeService").style.display = 'none'
+                document.getElementById("numberOfFloorAdd").style.display = 'block';
+                document.getElementById("poolAreaAdd").style.display = 'none';
+                document.getElementById("selectValue").value = 2;
+                break
+            case "3":
+                document.getElementById("standardAdd").style.display = 'none';
+                document.getElementById("descriptionAdd").style.display = 'none';
+                document.getElementById("numberOfFloorAdd").style.display = 'none';
+                document.getElementById("poolAreaAdd").style.display = 'none';
+                document.getElementById("selectValue").value = 3;
+                document.getElementById("addFreeService").style.display = 'block';
+                break
+        }
+    }
+</script>
+</html>
