@@ -13,5 +13,5 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 //    Query thuần
 //    @Query(value = "select * from blog where blog_id = :id",nativeQuery = true)
 //    Page<Blog> search(@Param("id") int id, Pageable pageable);
-  Page<Blog> findByCategory_Id(int id, Pageable pageable);
+  Page<Blog> findByNameContainingAndAndCategory_Id( String name, int id, Pageable pageable);
 }

@@ -1,6 +1,7 @@
 package com.example.furama.model.customer;
 
 import com.example.furama.model.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,25 +11,25 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 255,nullable = false)
+    @Column(length = 255, nullable = false)
     private String name;
-    @Column(length = 255,nullable = false)
+    @Column(length = 255, nullable = false)
     private String dateOfBirth;
     @Column(nullable = false)
     private boolean gender;
-    @Column(length = 255,nullable = false,unique = true)
+    @Column(length = 255, nullable = false, unique = true)
     private String iDCard;
-    @Column(length = 255,nullable = false,unique = true)
+    @Column(length = 255, nullable = false, unique = true)
     private String phoneNumber;
-    @Column(length = 255,nullable = false,unique = true)
+    @Column(length = 255, nullable = false, unique = true)
     private String email;
-    @Column(length = 255,nullable = false)
+    @Column(length = 255, nullable = false)
     private String address;
 
     @ManyToOne
     @JoinColumn(name = "customer_type", referencedColumnName = "id")
     private CustomerType customerType;
-
+    @JsonBackReference
     @OneToMany(mappedBy = "customer")
     private Set<Contract> contractSet;
 

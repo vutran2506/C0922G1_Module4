@@ -48,7 +48,6 @@ public class CustomerController {
 
     @PostMapping("/saveCustomer")
     public String save(CustomerDto customerDto, RedirectAttributes requestAttributes) {
-        List<Customer> list = customerService.
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);
         customerService.save(customer);

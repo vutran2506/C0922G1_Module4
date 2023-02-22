@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce7e9b95-1671-47e2-bc70-b373cabd0455" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/customer/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/dto/customer/CustomerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/repository/customer/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/repository/customer/ICustomerTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/ICustomerTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/impl/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/customer/impl/CustomerTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/customer/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/contract/ContractDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/contract/ContractDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/customer/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/facility/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/facility/Facility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/security/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/security/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/employee/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/customer/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/customer/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/dto/BlogDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/dto/BlogDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/repository/IBlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/repository/IBlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/service/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/service/IBlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/service/impl/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/java/com/example/exercise_optional/service/impl/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/resources/templates/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,14 +25,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym_Module_4/ss8_validator"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CodeGym_Module_4/ss8_validator&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,6 +42,7 @@
       <option name="presentableId" value="Default" />
       <updated>1676816066507</updated>
       <workItem from="1676816067907" duration="3000" />
+      <workItem from="1676980629430" duration="2000" />
     </task>
     <servers />
   </component>

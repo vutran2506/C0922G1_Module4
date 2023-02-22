@@ -28,10 +28,14 @@ public class FacilityController {
 
     @GetMapping("/facility")
     public String getAllFacility(@RequestParam(defaultValue = "") String nameSearch
-            , @RequestParam(defaultValue = "") String facilityTypeSearch,
+            , @RequestParam(defaultValue = "0") int facilityTypeSearch,
                                  Model model, FacilityDto facilityDto,
                                  @PageableDefault(size = 5, page = 0) Pageable pageable) {
-        model.addAttribute("facilityList", facilityService.getAllFacility(nameSearch, facilityTypeSearch, pageable));
+        if (facilityTypeSearch ==0){
+            model.addAttribute("facilityList",facilityService.getAllByName(nameSearch,pageable));
+        }else {
+            model.addAttribute("facilityList", facilityService.getAllFacility(nameSearch, facilityTypeSearch, pageable));
+        }
         model.addAttribute("facility", new FacilityDto());
         model.addAttribute("renType", rentTypeService.findAll());
         model.addAttribute("facilityType", facilityTypeService.findAll());

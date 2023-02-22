@@ -10,105 +10,83 @@
 
 <h3>Blog List</h3>
 <p>
-  <button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/blog/create}">
-    Add new blog
-  </a></button>
+    <button  class="btn btn-primary"><a style="text-decoration: none; color: white"  href="@{/blog/create}">
+        Add new blog
+    </a></button>
 </p>
 <marquee  th:text="${mess}">
 </marquee>
 <table class="table">
-  <thead>
-  <tr style="background-color: lightblue;" >
-    <th>Id</th>
-    <th>Name</th>
-    <th>Category</th>
-    <th>Author</th>
-    <th>Date Create</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>View</th>
-  </tr>
-  </thead>
-  <body>
-  <tr class="table-active" th:each="blog:${blogPage}">
-    <td th:text="${blog.id}"></td>
-    <td th:text="${blog.name}"></td>
-    <td th:text="${blog.category.getName()}"></td>
-    <td th:text="${blog.author}"></td>
-    <td th:text="${blog.dateCreate}"></td>
-    <td><button  class="btn btn-primary"><a style="text-decoration: none;color: white"  th:href="@{/blog/{id}/edit(id=${blog.getId()})}">edit</a></button></td>
+    <thead>
+    <tr style="background-color: lightblue;" >
+        <th>Id</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Date Create</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <body>
+    <tr class="table-active" th:each="blog:${blogPage}">
+        <td th:text="${blog.id}"></td>
+        <td th:text="${blog.name}"></td>
+        <td th:text="${blog.category.getName()}"></td>
+        <td th:text="${blog.author}"></td>
+        <td th:text="${blog.dateCreate}"></td>
+        <td><button  class="btn btn-primary"><a style="text-decoration: none;color: white"  th:href="@{/blog/{id}/edit(id=${blog.getId()})}">edit</a></button></td>
 
-    <td > <button th:attr="onclick=|infoDelete('${blog.id}','${blog.name}')|"
-                  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Delete
-    </button></td>
-    <td><button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/blog/{id}/view(id=${blog.getId()})}">view</a></button></td>
-  </tr>
-  </body>
+        <td > <button th:attr="onclick=|infoDelete('${blog.id}','${blog.name}')|"
+                      class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Delete
+        </button></td>
+        <td><button  class="btn btn-primary"><a style="text-decoration: none; color: white"  th:href="@{/blog/{id}/view(id=${blog.getId()})}">view</a></button></td>
+    </tr>
+    </body>
 </table>
-
-<input type="hidden" id="nextPage" th:value="${blogPage.number +1}">
-<input type="hidden" id="previousPage" th:value="${blogPage.number -1}">
-<input type="hidden" id="typeIdNumber" th:value="${valueSelect}">
-<script>
-  let x = document.getElementById("typeIdNumber").value;
-  document.getElementById("selectCategoryValue").value = x;
-  let previous = document.getElementById("previousPage").value;
-  let next = document.getElementById("nextPage").value;
-
-  let link2 = "/?page=" + next + "&id=" + x;
-  let link1 = "/?page=" + previous + "&id=" + x;
-
-
-  let pre = document.querySelector('.prePage');
-  pre.href = link1;
-
-  let nextP = document.querySelector('.nextPage');
-  nextP.href = link2;
-
-
-
 
 </script>
 <div>
-  <a th:href="@{__${#httpServletRequest.requestURI == '/' ? '' : #httpServletRequest.requestURI}__/(page=${blogPage.number - 1})}"
-     th:if="${blogPage.hasPrevious()}">
-    <button class="btn btn-success">Previous</button></a>
+    <a th:href="@{/(page=${blogPage.number - 1})}"
+       th:if="${blogPage.hasPrevious()}">
+        <button class="btn btn-success">Previous</button></a>
 
-  <span th:text="${blogPage.number +1}"></span>/<span th:text="${blogPage.totalPages}"></span>
+    <span th:text="${blogPage.number +1}"></span>/<span th:text="${blogPage.totalPages}"></span>
 
-  <a th:href="@{__${#httpServletRequest.requestURI == '/' ? '' : #httpServletRequest.requestURI}__/(page=${blogPage.number + 1})}"
-     th:if="${blogPage.hasNext()}">
-    <button class="btn btn-success">Next</button></a>
+    <a th:href="@{/(page=${blogPage.number + 1})}"
+       th:if="${blogPage.hasNext()}">
+        <button class="btn btn-success">Next</button></a>
 </div>
 <footer th:replace="/layout ::footer"></footer>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form  action="/blog/delete" method="get">
-        <div class="modal-body">
-          <input hidden type="text" th:id="id" th:name="id">
-          <span>You Want To Delete: </span><span id="name"></span>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form  action="/blog/delete" method="get">
+                <div class="modal-body">
+                    <input hidden type="text" th:id="id" th:name="id">
+                    <span>You Want To Delete: </span><span id="name"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Delete</button>
-        </div>
-      </form>
     </div>
-  </div>
 </div>
 </body>
 <script>
-  function infoDelete(id, name){
-    document.getElementById("id").value= id;
-    document.getElementById("name").innerText= name;
-  }
+    function infoDelete(id, name){
+        document.getElementById("id").value= id;
+        document.getElementById("name").innerText= name;
+    }
 </script>
 </body>
 </html>

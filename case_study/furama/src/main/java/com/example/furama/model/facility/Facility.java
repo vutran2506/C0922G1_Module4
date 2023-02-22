@@ -1,6 +1,7 @@
 package com.example.furama.model.facility;
 
 import com.example.furama.model.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -36,6 +37,7 @@ public class Facility {
     @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
     private FacilityType facilityType;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "facility")
     private Set<Contract> contractSet;
 

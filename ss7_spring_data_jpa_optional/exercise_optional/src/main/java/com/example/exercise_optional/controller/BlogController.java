@@ -16,13 +16,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("/blog")
 public class BlogController {
     @Autowired
     private IBlogService blogService;
@@ -30,11 +28,22 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping("/")
-    public String showList(Model model, @RequestParam(required = false, defaultValue = "") String nameSearch,
-                           @RequestParam(required = false, defaultValue = "") String categorySearch,
-                           @PageableDefault(size = 2, page = 0, sort = "dateCreate", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Blog> blogPage = blogService.findByNam(nameSearch, pageable);
-        model.addAttribute("blogPage", blogPage);
+    public String showList( BlogDto blogDto,Model model,
+                            @RequestParam( defaultValue = "") String nameSearch,
+                           @RequestParam( defaultValue = "0")int categorySearch,
+                           @PageableDefault(size = 2, page = 0, sort = "dateCreate",
+                                   direction = Sort.Direction.ASC) Pageable pageable) {
+        if (categorySearch==0){
+            Page<Blog> blogPage = blogService.findByName(nameSearch, pageable);
+            model.addAttribute("blogPage", blogPage);
+        }else {
+            Page<Blog> blogPage = blogService.findByCategory_IdAndName(nameSearch,categorySearch, pageable);
+            model.addAttribute("blogPage", blogPage);
+        }
+        model.addAttribute("nameSearch",nameSearch);
+        model.addAttribute("categorySearch",categorySearch);
+        model.addAttribute("categoryList", categoryService.findAll());
+        model.addAttribute("blog",new BlogDto());
         return "list";
     }
 
@@ -68,7 +77,7 @@ public class BlogController {
 
     @GetMapping("/blog/{id}/edit")
     public String edit(@PathVariable int id, Model model) {
-        model.addAttribute("blog", blogService.findById(id).get());
+        model.addAttribute("blog", blogService.findById(id));
 //        model.addAttribute("categoryList",categoryService.findById(id));
         model.addAttribute("categoryList", categoryService.findAll());
         return "edit";
@@ -76,7 +85,7 @@ public class BlogController {
 
     @GetMapping("/blog/{id}/view")
     public String view(@PathVariable int id, Model model) {
-        model.addAttribute("blog", blogService.findById(id).get());
+        model.addAttribute("blog", blogService.findById(id));
         return "view";
     }
 

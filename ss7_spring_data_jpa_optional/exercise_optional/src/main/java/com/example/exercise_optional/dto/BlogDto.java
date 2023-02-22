@@ -13,8 +13,6 @@ public class BlogDto {
     private String dateCreate;
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "blog_id" ,referencedColumnName = "id"  )
     private Category category;
 
 

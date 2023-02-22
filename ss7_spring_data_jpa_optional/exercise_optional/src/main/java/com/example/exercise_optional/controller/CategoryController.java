@@ -18,9 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
-
-
 @Controller
 public class CategoryController {
 
@@ -56,16 +53,16 @@ public class CategoryController {
         model.addAttribute("category",categoryService.findById(id));
         return "/category/edit";
     }
-    @GetMapping("/category/{id}/view")
-    public String view(@PathVariable int id,Model model,
-                       @PageableDefault(size = 2, page = 0,
-            sort = "dateCreate", direction = Sort.Direction.ASC) Pageable pageable){
-        Page<Blog> blogPage = blogService.findByCategory_Id(id,pageable);
+//    @GetMapping("/category/{id}/view")
+//    public String view(@PathVariable int id,Model model,
+//                       @PageableDefault(size = 2, page = 0,
+//            sort = "dateCreate", direction = Sort.Direction.ASC) Pageable pageable){
+//        Page<Blog> blogPage = blogService.findByCategory_Id(id,pageable);
 //        Query thuần
 //        Page<Blog> blogPage = blogService.search(id, pageable);
 
-        model.addAttribute("blogPage", blogPage);
-        model.addAttribute("idz", id);
-        return "list";
-    }
+//        model.addAttribute("blogPage", blogPage);
+//        model.addAttribute("idz", id);
+//        return "list";
+//    }
 }

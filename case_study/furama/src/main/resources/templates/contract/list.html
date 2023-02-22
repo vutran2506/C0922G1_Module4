@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{layout :: head(title)}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.6.3.min.js"></script>
+</head>
+<div th:replace="~{layout :: header}"></div>
+<body>
+<h1>Danh Sách Hợp Đồng</h1>
+<div>
+    <button class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#addContract">
+        <h5>Thêm Mới Khách Hàng<i class="bi bi-person-plus-fill"></i></h5>
+
+    </button>
+</div>
+<table class="table table-primary">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Dịch Vụ</th>
+        <th>Khách Hàng</th>
+        <th>Ngày Bắt Đầu</th>
+        <th>Ngày Kết Thúc</th>
+        <th>Tiền Đặt Cọc</th>
+        <th>Tổng Tiền</th>
+        <th>Các Dịch Vụ Đi Kèm</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+</body>
+<!--Hiển thị dịch vụ đi kèm-->
+<div class="modal" tabindex="-1" id="viewAttachFacility">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dịch Vụ Đi Kèm Của Hợp Đồng Này</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <input type="hidden" th:value="${modal}" id="modalCheck">
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dịch Vụ</th>
+                        <th>Đơn Giá</th>
+                        <th>Xuất</th>
+                        <th>Trạng Thái</th>
+                        <th>Số Lượng</th>
+                        <th>Tổng Tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableAttachFacilityNew">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        showListContract();
+    })
+
+    function showListContract() {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: `http://localhost:8080/contract/api`,
+            success: function (data) {
+                console.log(data);
+                let table = ''
+                for (let i = 0; i < data.length; i++) {
+                    table += `
+                 <tr>
+                 <th>${i + 1}</th>
+                 <th>${data[i].facility.name}</th>
+                 <th>${data[i].customer.name}</th>
+                 <th>${data[i].startDate}</th>
+                 <th>${data[i].endDate}</th>
+                 <th>${data[i].deposit}</th>
+                 <th>${data[i].total}</th>
+                 <th>
+                 <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#editModal" onclick="updateContract(${data[i].id}, '${data[i].startDate}', '${data[i].endDate}', ${data[i].deposit}, ${data[i].employee.id}, ${data[i].customer.id}, ${data[i].facility.id},${data[i].total})">+</button>
+                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewAttachFacility" onclick="showListAttachFacility(${data[i].id})">Danh Sách Dịch Vụ Đi Kèm</button>
+                 </th>
+
+                `
+                }
+                $('#tbody').html(table);
+            }
+
+        })
+    }
+
+    //ShowListAttract
+
+    function showListAttachFacility(id) {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/contract/api/view/" + id,
+            success: function (data) {
+                let table = ''
+                let x = 0;
+                for (let i = 0; i < data.length; i++) {
+                    x += data[i].total;
+                    table += `
+                    <tr>
+                         <th>${i + 1}</th>
+                        <th>${data[i].name}</th>
+                        <th>${data[i].cost}</th>
+                        <th>${data[i].unit}</th>
+                        <th>${data[i].status}</th>
+                        <th>${data[i].quantity}</th>
+                        <th>${data[i].total}</th>
+                    </tr>`
+                }
+                table += `</tr>
+                 <tr>
+                 <th colspan="4">Tổng Thành Tiền:</th>
+                 <th></th>
+                 <th></th>
+                 <th>${x}</th>
+                 </tr>
+                    `
+
+                $('#tableAttachFacilityNew').html(table)
+            }
+        })
+    }
+
+    function addContract() {
+        let start = $('#addStartDate').val();
+        let end = $('#addEndDate').val();
+        let deposit = $('#addDeposit').val();
+        let customer = $('#addCutomer').val();
+        let employee = $('#addEmployee').val();
+        let facility = $('#addFacility').val();
+        let contract = {
+            startDate: start,
+            endDate: end,
+            deposit: deposit,
+            employee: employee,
+            customer: customer,
+            facility: facility
+        };
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'POST',
+            data: JSON.stringify(contract),
+            url: "/contracts/create",
+            success: function () {
+                $('#addContract').modal('hide')
+                showListContract()
+            }
+        })
+
+    }
+</script>
+</html>
