@@ -1,33 +1,29 @@
 package com.example.furama.dto.customer;
 
+import com.example.furama.model.contract.AttachFacility;
+import com.example.furama.model.contract.Contract;
+
 public class ContractDetailDto{
-    private int id;
-    private int contractId;
-    private int attachId;
+
+    private Contract contract;
+
     private int quantity;
+    private AttachFacility attachFacility;
 
-    public int getId() {
-        return id;
+    public Contract getContract() {
+        return contract;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public AttachFacility getAttachFacility() {
+        return attachFacility;
     }
 
-    public int getContractId() {
-        return contractId;
+    public void setAttachFacility(AttachFacility attachFacility) {
+        this.attachFacility = attachFacility;
     }
 
-    public void setContractId(int contractId) {
-        this.contractId = contractId;
-    }
-
-    public int getAttachId() {
-        return attachId;
-    }
-
-    public void setAttachId(int attachId) {
-        this.attachId = attachId;
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
 
     public int getQuantity() {

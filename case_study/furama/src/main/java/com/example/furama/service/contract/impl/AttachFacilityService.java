@@ -23,7 +23,7 @@ public class AttachFacilityService implements IAttachFacilityService {
 
     @Override
     public AttachFacility findAllById(int id) {
-        return attachFacilityRepository.findById(id).get();
+        return attachFacilityRepository.findById(id).orElse(null);
     }
 
     @Override

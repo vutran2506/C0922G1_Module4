@@ -6,7 +6,10 @@ import com.example.furama.repository.contract.IContractRepository;
 import com.example.furama.service.contract.IContractService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +24,7 @@ public class ContractService implements IContractService {
 
     @Override
     public Page<Contract> findAllContract(Pageable pageable) {
-        return contractRepository.findAll(pageable);
+        return contractRepository.findAllPageContract(pageable);
     }
 
     @Override
@@ -40,17 +43,37 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public List<ContractDto1> getAllContractDto1() {
-        List<Contract> contractList = contractRepository.findAll();
+    public List<ContractDto1> getAllContractDto11() {
+        List<Contract> contractList =contractRepository.findAll();
         List<ContractDto1> contractDto1List = new ArrayList<>();
-        double totalMoney = 0;
-        for (Contract contractX : contractList) {
-            ContractDto1 contractDto1 = new ContractDto1();
-            BeanUtils.copyProperties(contractX, contractDto1);
-            contractDto1.setTotal(contractRepository.calculateTotal(contractX.getId()));
-            totalMoney += contractDto1.getTotal();
-            contractDto1List.add(contractDto1);
-        }
+         for (Contract ct :contractList){
+             ContractDto1 contractDto1 = new ContractDto1();
+             BeanUtils.copyProperties(ct,contractDto1);
+             contractDto1.setTotal(contractRepository.calculateTotal(ct.getId()));
+             contractDto1List.add(contractDto1);
+         }
+
         return contractDto1List;
     }
+
+//    @Override
+//    public Page<ContractDto1> getAllContractDto1(Pageable pageable) {
+//
+//        Page<Contract> contractList = contractRepository.findAllPageContract(pageable);
+//
+//        Pageable newPage = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
+//
+//        List<Contract> contractList1 = contractList.getContent();
+//
+//        List<ContractDto1> contractDto1List = new ArrayList<>();
+//
+//        for (Contract contractX : contractList1) {
+//            ContractDto1 contractDto1 = new ContractDto1();
+//            BeanUtils.copyProperties(contractX, contractDto1);
+//            contractDto1.setTotal(contractRepository.calculateTotal(contractX.getId()));
+//            contractDto1List.add(contractDto1);
+//        }
+//        Page<ContractDto1> contractDto1Page = new PageImpl<>(contractDto1List,newPage,contractList.getTotalElements());
+//        return contractDto1Page;
+//    }
 }

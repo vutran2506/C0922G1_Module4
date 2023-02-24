@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class ContractDetailService implements IContractDetailService {
     @Autowired
@@ -19,6 +20,11 @@ public class ContractDetailService implements IContractDetailService {
 
     @Override
     public void save(ContractDetail contractDetail) {
-contractDetailRepository.save(contractDetail);
+        contractDetailRepository.save(contractDetail);
+    }
+
+    @Override
+    public ContractDetail findById(int id) {
+        return contractDetailRepository.findById(id).orElse(null);
     }
 }

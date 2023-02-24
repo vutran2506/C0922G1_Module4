@@ -16,5 +16,7 @@ public interface IContractService {
 
     Double calculatorTotal(int id);
 
-    List<ContractDto1> getAllContractDto1();
+//    Page<ContractDto1> getAllContractDto1(Pageable pageable);
+
+    List<ContractDto1> getAllContractDto11();
 }

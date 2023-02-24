@@ -31,6 +31,9 @@
     <tbody id="tbody">
     </tbody>
 </table>
+<div>
+
+</div>
 </body>
 <!--Hiển thị dịch vụ đi kèm-->
 <div class="modal" tabindex="-1" id="viewAttachFacility">
@@ -40,7 +43,7 @@
                 <h5 class="modal-title">Dịch Vụ Đi Kèm Của Hợp Đồng Này</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <input type="hidden" th:value="${modal}" id="modalCheck">
+            <input type="hidden">
             <div class="modal-body">
                 <table class="table">
                     <thead>
@@ -65,10 +68,205 @@
     </div>
 </div>
 
+<!--Tạo Hợp đồng-->
+<div class="modal" tabindex="-1" id="addContract">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tạo Hợp Đồng <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/contract/create}" method="post" th:object="${contractDto}">
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Ngày Bắt Đầu</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="addStartDate" th:field="*{startDate}">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Ngày Kết Thúc</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="addEndDate" th:field="*{endDate}">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Tiền Gửi</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" onchange="validate()" id="addDeposit"
+                                   th:field="*{deposit}">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Tổng Tiền</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" readonly id="tongTien">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Khách Hàng</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="addCutomer" th:field="*{customer}">
+                                <option th:each="customer : ${customerList}" th:text="${customer.name}"
+                                        th:value="${customer.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Nhân Viên</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="addEmployee" th:field="*{employee}">
+                                <option th:each="employee : ${employeeList}" th:text="${employee.name}"
+                                        th:value="${employee.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="addFacility" th:field="*{facility}">
+                                <option th:each="facility : ${facilityList}" th:text="${facility.name}"
+                                        th:value="${facility.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ Đi Kèm</label>
+                        <div class="col-sm-10">
+                            <button type="button" class="btn btn-primary" onclick="addAttach()" data-bs-toggle="modal"
+                                    data-bs-target="#addDetail">+
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Xác Nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Thêm dịch vụ đi kèm-->
+<div class="modal" tabindex="-1" id="addDetail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm dịch vụ đi kèm <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form th:object="${contractDetailDto}" th:action="@{/contract/addAttachFacility}" method="post">
+<div></div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <select th:field="*{attachFacility}" id="attachFacilityAdd" class="form-control">
+                                <option th:each="facility : ${attractFacilityList}" th:text="${facility.name}"
+                                        th:value="${facility.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Số Lượng</label>
+                        <input type="hidden" th:field="*{contract}" id="contractIdAdd">
+                        <div class="col-sm-10">
+                            <input type="number" id="quantityAdd" class="form-control" th:field="*{quantity}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
+    // Xóa nội dung của tbody danh sách dịch vụ đi kèm khi modal bị ẩn
+    $("#viewAttachFacility").on("hidden.bs.modal", function () {
+        $("#tableAttachFacilityNew").empty();
+    });
+
+    //Thêm dịch vụ mới
+    function  showFormAddContractDetail(id){
+        document.getElementById('contractIdAdd').value = id;
+    }
+    function addContractDetail() {
+        // id, startDate, endDate, deposit, employee, customer, facility,total
+        let contractId = $('#contractIdAdd').val();
+        let quantity = $('#quantityAdd').val();
+        let attachId = $('#attachFacilityAdd').val();
+        let contractDetailDto = {
+            contractId: contractId,
+            quantity: quantity,
+            attachId: attachId
+        }
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'POST',
+            data: JSON.stringify(contractDetailDto),
+            url: 'http://localhost:8080/contract/api/contractDetail',
+            success: function (data) {
+                location.reload();
+            }
+        });
+
+
+    }
+
     $(document).ready(function () {
         showListContract();
     })
+
+    // X
+    //
+    // function showListContract() {
+    //     $.ajax({
+    //         type: "GET",
+    //         dataType: "json",
+    //         url: `http://localhost:8080/contract/api`,
+    //         success: function (data) {
+    //             console.log(data);
+    //             let table = ''
+    //             for (let i = 0; i < data.content.length; i++) {
+    //                 table += `
+    //              <tr>
+    //              <td>${i + 1}</td>
+    //              <td>${data.content[i].facility.name}</td>
+    //              <td>${data.content[i].customer.name}</td>
+    //              <td>${data.content[i].startDate}</td>
+    //              <td>${data.content[i].endDate}</td>
+    //              <td>${data.content[i].deposit}</td>
+    //              <td>${data.content[i].total}</td>
+    //              <td>
+    //              <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#addDetail" onclick="showFormAddContractDetail('${data.content[i].id}')">+</button>
+    //              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewAttachFacility" onclick="showListAttachFacility(${data.content[i].id})">Danh Sách Dịch Vụ Đi Kèm</button>
+    //              </td>
+    //              </tr>
+    //             `
+    //             }
+    //             table += `
+    //              <tr>
+    //              <td colspan="4"><button id="${data.content.number}" onclick="subRecord()">Previous</button></td>
+    //              <span>   </span><button onclick="addRecord()">Next</button>
+    //              <td></td>
+    //              <td></td>
+    //              <td></td>
+    //              <td></td>
+    //              </tr>
+    //                 `
+    //             $('#tbody').html(table);
+    //         }
+    //
+    //     })
+    // }
 
     function showListContract() {
         $.ajax({
@@ -81,18 +279,18 @@
                 for (let i = 0; i < data.length; i++) {
                     table += `
                  <tr>
-                 <th>${i + 1}</th>
-                 <th>${data[i].facility.name}</th>
-                 <th>${data[i].customer.name}</th>
-                 <th>${data[i].startDate}</th>
-                 <th>${data[i].endDate}</th>
-                 <th>${data[i].deposit}</th>
-                 <th>${data[i].total}</th>
-                 <th>
-                 <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#editModal" onclick="updateContract(${data[i].id}, '${data[i].startDate}', '${data[i].endDate}', ${data[i].deposit}, ${data[i].employee.id}, ${data[i].customer.id}, ${data[i].facility.id},${data[i].total})">+</button>
+                 <td>${i + 1}</td>
+                 <td>${data[i].facility.name}</td>
+                 <td>${data[i].customer.name}</td>
+                 <td>${data[i].startDate}</td>
+                 <td>${data[i].endDate}</td>
+                 <td>${data[i].deposit}</td>
+                 <td>${data[i].total}</td>
+                 <td>
+                 <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#addDetail" onclick="showFormAddContractDetail('${data[i].id}')">+</button>
                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewAttachFacility" onclick="showListAttachFacility(${data[i].id})">Danh Sách Dịch Vụ Đi Kèm</button>
-                 </th>
-
+                 </td>
+                 </tr>
                 `
                 }
                 $('#tbody').html(table);
@@ -100,7 +298,6 @@
 
         })
     }
-
     //ShowListAttract
 
     function showListAttachFacility(id) {
@@ -167,5 +364,6 @@
         })
 
     }
+
 </script>
 </html>
