@@ -2,6 +2,7 @@ package com.example.furama.service.contract;
 
 import com.example.furama.dto.customer.ContractDto1;
 import com.example.furama.model.contract.Contract;
+import com.example.furama.model.contract.ContractDetail;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -19,4 +20,6 @@ public interface IContractService {
 //    Page<ContractDto1> getAllContractDto1(Pageable pageable);
 
     List<ContractDto1> getAllContractDto11();
+
+    List<ContractDto1>findAllContracting();
 }

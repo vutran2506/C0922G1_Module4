@@ -3,28 +3,39 @@ package com.example.furama.dto.customer;
 import com.example.furama.model.contract.Contract;
 import com.example.furama.model.facility.FacilityType;
 import com.example.furama.model.facility.RentType;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import java.lang.annotation.Annotation;
 import java.util.Set;
 
-public class FacilityDto {
+public class FacilityDto implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(length = 255,nullable = false)
     private String name;
+@Min(value = 0,message = "Diện tích phòng khônng được âm")
     @Column(nullable = false)
     private Integer area;
+@Min(value = 0  , message = "Giá phòng không được âm")
     @Column(nullable = false)
     private Double cost;
+@Min(value = 0, message = "Số người ở tối đa không được âm")
     @Column(nullable = false)
     private Double maxPeople;
     @Column(length = 255,nullable = false)
     private String standardRoom;
     @Column(length = 255,nullable = false)
     private String descriptionOtherConvenience;
+    @Min(value = 0,message = "diện tích hồ bơi không được âm")
     @Column(nullable = false)
     private Double poolArea;
+
+    @Min(value = 1, message = "Số tầng phải lớn hơn 1")
     @Column(nullable = false)
     private Integer numberOfFloor;
     @Column(length = 255,nullable = false)
@@ -157,5 +168,15 @@ public class FacilityDto {
 
     public void setContractSet(Set<Contract> contractSet) {
         this.contractSet = contractSet;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }

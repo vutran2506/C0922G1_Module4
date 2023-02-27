@@ -7,6 +7,7 @@
 </head>
 <div th:replace="~{layout :: header}"></div>
 <body>
+<div th:replace="layout::nav"></div>
 <h1>Danh Sách Hợp Đồng</h1>
 <div>
     <button class="btn btn-success" data-bs-toggle="modal"
@@ -32,7 +33,7 @@
     </tbody>
 </table>
 <div>
-
+    <button onclick="findContract()" class=" btn btn-primary">Hiển thị khác hàng đang sử dụng dịch vụ</button>
 </div>
 </body>
 <!--Hiển thị dịch vụ đi kèm-->
@@ -93,7 +94,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Tiền Gửi</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" onchange="validate()" id="addDeposit"
+                            <input type="number" class="form-control" id="addDeposit"
                                    th:field="*{deposit}">
                         </div>
                     </div>
@@ -106,7 +107,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Khách Hàng</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="addCutomer" th:field="*{customer}">
+                            <select class="form-control" id="addCustomer" th:field="*{customer}">
                                 <option th:each="customer : ${customerList}" th:text="${customer.name}"
                                         th:value="${customer.id}"></option>
                             </select>
@@ -124,19 +125,24 @@
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Dịch Vụ</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="addFacility" th:field="*{facility}">
+                            <select class="form-control" id="addFacility" th:field="*{facility}"
+                                    onchange="getTotalCost()">
                                 <option th:each="facility : ${facilityList}" th:text="${facility.name}"
-                                        th:value="${facility.id}"></option>
+                                        th:value="${facility.id}"
+                                        th:data-cost="${facility.getCost()}"></option>
                             </select>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Dịch Vụ Đi Kèm</label>
                         <div class="col-sm-10">
-                            <button type="button" class="btn btn-primary" onclick="addAttach()" data-bs-toggle="modal"
-                                    data-bs-target="#addDetail">+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#addContractDetail">+
                             </button>
                         </div>
+                    </div>
+                    <div id="showAttachFacilityNew">
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
@@ -158,7 +164,6 @@
             </div>
             <div class="modal-body">
                 <form th:object="${contractDetailDto}" th:action="@{/contract/addAttachFacility}" method="post">
-<div></div>
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Dịch Vụ</label>
                         <div class="col-sm-10">
@@ -185,6 +190,47 @@
     </div>
 </div>
 
+
+<div class="modal" tabindex="-1" id="addContractDetail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm dịch vụ đi kèm <i class="fa-sharp fa-solid fa-user"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Dịch Vụ</label>
+                        <div class="col-sm-10">
+                            <select id="attachFacilityNew" class="form-control">
+                                <option th:each="facility : ${attractFacilityList}"
+                                        th:data-name="${facility.name}"
+                                        th:data-cost="${facility.cost}"
+                                        th:text="${facility.name} + '( '+ ${facility.cost}+' VND)'"
+                                        th:value="${facility.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Số Lượng</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="quantityNew" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" data-bs-toggle="modal"
+                                data-bs-target="#addContract" onclick="addContractDetailNew()" class="btn btn-primary">
+                            Thêm
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     // Xóa nội dung của tbody danh sách dịch vụ đi kèm khi modal bị ẩn
     $("#viewAttachFacility").on("hidden.bs.modal", function () {
@@ -192,9 +238,10 @@
     });
 
     //Thêm dịch vụ mới
-    function  showFormAddContractDetail(id){
+    function showFormAddContractDetail(id) {
         document.getElementById('contractIdAdd').value = id;
     }
+
     function addContractDetail() {
         // id, startDate, endDate, deposit, employee, customer, facility,total
         let contractId = $('#contractIdAdd').val();
@@ -267,6 +314,35 @@
     //
     //     })
     // }
+    function findContract() {
+        $.ajax({
+            type: "GET",
+            datatype: "json",
+            url: `http://localhost:8080/contract/find`,
+            success: function (data) {
+                console.log(data);
+                let table = ''
+                for (let i = 0; i < data.length; i++) {
+                    table += `
+                 <tr>
+                 <td>${i + 1}</td>
+                 <td>${data[i].facility.name}</td>
+                 <td>${data[i].customer.name}</td>
+                 <td>${data[i].startDate}</td>
+                 <td>${data[i].endDate}</td>
+                 <td>${data[i].deposit}</td>
+                 <td>${data[i].total}</td>
+                 <td>
+                 <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#addDetail" onclick="showFormAddContractDetail('${data[i].id}')">+</button>
+                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewAttachFacility" onclick="showListAttachFacility(${data[i].id})">Danh Sách Dịch Vụ Đi Kèm</button>
+                 </td>
+                 </tr>
+                `
+                }
+                $('#tbody').html(table);
+            }
+        })
+    }
 
     function showListContract() {
         $.ajax({
@@ -298,7 +374,96 @@
 
         })
     }
-    //ShowListAttract
+
+    //Tạo class AttachFacility
+    class AttachFacility {
+        constructor(id, name, quantity, cost) {
+            this._id = id;
+            this._name = name;
+            this._quantity = quantity;
+            this._cost = cost
+        }
+
+        get cost() {
+            return this._cost;
+        }
+
+        set cost(value) {
+            this._cost = value;
+        }
+
+        get id() {
+            return this._id;
+        }
+
+        set id(value) {
+            this._id = value;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get quantity() {
+            return this._quantity;
+        }
+
+        set quantity(value) {
+            this._quantity = value;
+        }
+    }
+
+    //   hiển thị dịch vụ đi kèm
+    let listss = new Array();
+    let listQuantity = new Array();
+    let listAttachFacility = new Array();
+    let listAttachFacilityName = new Array();
+
+    function addContractDetailNew() {
+
+        let quantityNew = parseInt(document.getElementById("quantityNew").value);
+        let attachFacilityNew = document.getElementById("attachFacilityNew").value;
+        let attachFacilityName = $("#attachFacilityNew option:selected").data("name");
+        let attachFacilityCost = $("#attachFacilityNew option:selected").data("cost");
+
+        if (listAttachFacilityName.includes(attachFacilityName)) {
+            let count = listAttachFacilityName.indexOf(attachFacilityName);
+            listQuantity[count] += quantityNew;
+        } else {
+            listAttachFacilityName.push(attachFacilityName)
+            listQuantity.push(quantityNew);
+            listAttachFacility.push(attachFacilityNew);
+        }
+        let attachNew = new AttachFacility(attachFacilityNew, attachFacilityName, quantityNew, attachFacilityCost)
+        listss.push(attachNew);
+        let x = totalMoney();
+        $('#tongTien').val(x);
+        showAttachFacilityListNew(listAttachFacilityName, listQuantity);
+
+
+    }
+
+    function showAttachFacilityListNew(listAttachFacilityName, listQuantity) {
+        let content = "";
+        content += '<table style="border-style: solid; color: red" class="table table-striped" >' + '<tr>';
+        for (let i = 0; i < listAttachFacilityName.length; i++) {
+            content += '<td>' + listAttachFacilityName[i] + '</td>';
+        }
+        content += '</tr>';
+        content += '<tr>';
+        for (let i = 0; i < listQuantity.length; i++) {
+            content += '<td>' + listQuantity[i] + '</td>';
+        }
+        content += '</tr>';
+        content += '</table><br>';
+        content += `<input  name="listQuantity" value="${listQuantity}" style="display: none">`
+        content += `<input  name="listAttachFacility" value="${listAttachFacility}" style="display: none">`
+        document.getElementById('showAttachFacilityNew').innerHTML = content;
+    }
 
     function showListAttachFacility(id) {
         $.ajax({
@@ -334,6 +499,7 @@
         })
     }
 
+    //Thêm contract
     function addContract() {
         let start = $('#addStartDate').val();
         let end = $('#addEndDate').val();
@@ -362,6 +528,26 @@
                 showListContract()
             }
         })
+
+    }
+
+    function getTotalCost() {
+
+        let totalCost = totalMoney();
+
+        $('#tongTien').val(totalCost);
+    }
+
+    function totalMoney() {
+        let totalMoney = 0;
+        for (let i = 0; i < listss.length; i++) {
+            let attach = listss[i];
+            totalMoney += attach.quantity * attach.cost;
+
+        }
+        let selectedCost = +$("#addFacility option:selected").data("cost");
+        totalMoney += selectedCost;
+        return totalMoney;
 
     }
 

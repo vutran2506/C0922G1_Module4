@@ -11,7 +11,7 @@ public class Facility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 255,nullable = false)
+    @Column(length = 255, nullable = false)
     private String name;
     @Column(nullable = false)
     private Integer area;
@@ -19,18 +19,18 @@ public class Facility {
     private Double cost;
     @Column(nullable = false)
     private Double maxPeople;
-    @Column(length = 255,nullable = true)
+    @Column(length = 255, nullable = true)
     private String standardRoom;
-    @Column(length = 255,nullable = true)
+    @Column(length = 255, nullable = true)
     private String descriptionOtherConvenience;
     @Column(nullable = true)
     private Double poolArea;
     @Column(nullable = true)
     private Integer numberOfFloor;
-    @Column(length = 255,nullable = true)
+    @Column(length = 255, nullable = true)
     private String facilityFree;
     @ManyToOne
-    @JoinColumn( name = "rent_type_id", referencedColumnName = "id")
+    @JoinColumn(name = "rent_type_id", referencedColumnName = "id")
     private RentType rentType;
 
     @ManyToOne

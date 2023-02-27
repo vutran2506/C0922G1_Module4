@@ -15,9 +15,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -66,6 +63,13 @@ public class RestContractController {
             return new ResponseEntity<>(contractDto1List, HttpStatus.OK);
         }
     }
+
+    @GetMapping("/contract/find")
+    public ResponseEntity<List<ContractDto1>> getAllContracting(){
+        List<ContractDto1> contractDto1List = contractService.findAllContracting();
+        return  new ResponseEntity<>( contractDto1List,HttpStatus.OK);
+    }
+
 
     @GetMapping("/contract/api/view/{id}")
     public ResponseEntity<List<AttachFacilityDto>> getAllAttachFacility(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {

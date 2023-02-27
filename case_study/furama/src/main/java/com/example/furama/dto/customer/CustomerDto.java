@@ -4,15 +4,41 @@ package com.example.furama.dto.customer;
 import com.example.furama.model.customer.CustomerType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 public class CustomerDto implements Validator {
     private int id;
+    @NotNull(message = "Không được để null ")
+    @NotBlank(message = "Không được nhập toàn dấu cách")
+    @NotEmpty(message = "Không được để trống")
+    @Pattern(regexp = "^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$" , message = "Nhập tên không đúng định dạng")
     private String name;
+
     private String dateOfBirth;
     private boolean gender;
+    @NotNull(message = "Không được để null ")
+    @NotBlank(message = "Không được nhập toàn dấu cách")
+    @NotEmpty(message = "Không được để trống")
+    @Pattern(regexp = "^\\d{12}|\\d{10}$", message = "Số căn cước công dân phải 10  hoặc 12 số")
     private String iDCard;
+    @NotNull(message = "Không được để null ")
+    @NotBlank(message = "Không được nhập toàn dấu cách")
+    @NotEmpty(message = "Không được để trống")
+    @Pattern(regexp = "^\\d{10}|\\d{11}$", message = " Số điện thoại phải 10 hoặc 11 số")
     private String phoneNumber;
+    @NotNull(message = "Không được để null ")
+    @NotBlank(message = "Không được nhập toàn dấu cách")
+    @NotEmpty(message = "Không được để trống")
+    @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$", message = "Email không hợp lệ")
     private String email;
+    @NotNull(message = "Không được để null ")
+    @NotBlank(message = "Không được nhập toàn dấu cách")
+    @NotEmpty(message = "Không được để trống")
     private String address;
     private CustomerType customerType;
 

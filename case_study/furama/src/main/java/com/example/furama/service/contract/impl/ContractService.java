@@ -2,16 +2,19 @@ package com.example.furama.service.contract.impl;
 
 import com.example.furama.dto.customer.ContractDto1;
 import com.example.furama.model.contract.Contract;
+import com.example.furama.model.contract.ContractDetail;
 import com.example.furama.repository.contract.IContractRepository;
 import com.example.furama.service.contract.IContractService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public void save(Contract contract) {
+    public void save(Contract contract ) {
         contractRepository.save(contract);
     }
 
@@ -54,6 +57,19 @@ public class ContractService implements IContractService {
          }
 
         return contractDto1List;
+    }
+
+    @Override
+    public List<ContractDto1> findAllContracting() {
+       List<Contract>contractList = contractRepository.findAllContracting();
+       List<ContractDto1> contractDto1s = new ArrayList<>();
+       for (Contract ct :contractList){
+           ContractDto1 contractDto1 = new ContractDto1();
+           BeanUtils.copyProperties(ct,contractDto1);
+           contractDto1.setTotal(contractRepository.calculateTotal(ct.getId()));
+           contractDto1s.add(contractDto1);
+       }
+        return contractDto1s;
     }
 
 //    @Override

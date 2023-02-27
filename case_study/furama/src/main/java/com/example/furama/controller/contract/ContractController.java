@@ -3,6 +3,7 @@ package com.example.furama.controller.contract;
 import com.example.furama.dto.customer.ContractDetailDto;
 import com.example.furama.dto.customer.ContractDto;
 import com.example.furama.dto.customer.ContractDto1;
+import com.example.furama.model.contract.AttachFacility;
 import com.example.furama.model.contract.Contract;
 import com.example.furama.model.contract.ContractDetail;
 import com.example.furama.service.contract.IAttachFacilityService;
@@ -17,10 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -60,10 +58,12 @@ public class ContractController {
     }
 
     @PostMapping("contract/create")
-    public String saveContract(ContractDto1 contractDto1) {
+    public String saveContract(ContractDto1 contractDto1, @RequestParam int[] listQuantity,
+                               @RequestParam int[] listAttachFacility) {
         Contract contract = new Contract();
         BeanUtils.copyProperties(contractDto1, contract);
         contractService.save(contract);
+        addContractDetail(listQuantity,listAttachFacility,contract.getId());
         return "redirect:/contract";
     }
 
@@ -73,5 +73,15 @@ public class ContractController {
         BeanUtils.copyProperties(contractDetailDto, contractDetail);
        contractDetailService.save(contractDetail);
         return"redirect:/contract";
+    }
+    public void addContractDetail(int[] listQuantity,int[]listAttachFacility , int contractId){
+
+        for (int i = 0; i < listQuantity.length; i++) {
+          Contract contract = contractService.findById(contractId);
+            AttachFacility attachFacility = attachFacilityService.findAllById(listAttachFacility[i]);
+            ContractDetail contractDetail = new ContractDetail(contract, attachFacility, listQuantity[i]);
+            contractDetailService.save(contractDetail);
+        }
+
     }
 }
