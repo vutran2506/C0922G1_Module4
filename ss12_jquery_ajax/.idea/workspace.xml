@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e324326f-ecea-4e59-8a72-5bcd340a15c2" name="Changes" comment="" />
+    <list default="true" id="e324326f-ecea-4e59-8a72-5bcd340a15c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/controller/RestBlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/model/BlogDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/java/com/example/on_tap/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/resources/templates/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/resources/templates/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/resources/templates/jquery-3.6.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/resources/templates/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../C0822G1-VoVanCuong_4/case_study/on_tap/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/contract/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/contract/ContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/contract/RestContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/controller/contract/RestContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/dto/customer/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/dto/customer/CustomerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/dto/customer/FacilityDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/dto/customer/FacilityDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/facility/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/model/facility/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/repository/contract/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/repository/contract/IContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/contract/IContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/contract/IContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/contract/impl/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/java/com/example/furama/service/contract/impl/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/main/resources/templates/contract/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_spring_data_jpa_optional/exercise_optional/src/main/resources/templates/list.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,14 +44,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym_Module_4/ss12_jquery_ajax"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CodeGym_Module_4/ss12_jquery_ajax&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -33,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677077367259</updated>
       <workItem from="1677077368698" duration="1000" />
+      <workItem from="1677404826968" duration="3000" />
     </task>
     <servers />
   </component>
