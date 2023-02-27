@@ -13,11 +13,11 @@
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
         <table>
-            <form th:action="@{/facility/save}" method="post" th:object="${facility}">
+            <form th:action="@{/facility/save}" method="post" th:object="${facilityDto}">
                 <div class=" row">
                     <label>Loại Dịch Vụ :</label>
                     <div class="col-sm-6">
-                        <select class="form-control" onchange="addFacility              ()" id="selectValue"
+                        <select class="form-control" onchange="addFacility()" id="selectValue"
                                 th:field="*{facilityType}">
                             <option th:value="0">Chọn Loại Dịch Vụ</option>
                             <option th:each="item:${facilityTypeList}" th:text="${item.name}"
@@ -30,6 +30,7 @@
                     <label>Tên Dịch Vụ:</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" th:field="*{name}">
+                        <small style="color: red" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></small>
                     </div>
                 </div>
                 <br>
@@ -37,6 +38,7 @@
                     <label>Diện Tích:</label>
                     <div class="col-sm-6">
                         <input type="number" class="form-control" th:field="*{area}">
+                        <small style="color: red" th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></small>
                     </div>
                 </div>
                 <br>
@@ -44,6 +46,7 @@
                     <label>Chi Phí Thuê:</label>
                     <div class="col-sm-6">
                         <input type="number" class="form-control" th:field="*{cost}">
+                        <small style="color: red" th:errors="*{cost}" th:if="${#fields.hasErrors('cost')}"></small>
                     </div>
                 </div>
                 <br>
@@ -51,6 +54,7 @@
                     <label>Số Người Tối Đa:</label>
                     <div class="col-sm-6">
                         <input type="number" class="form-control" th:field="*{maxPeople}">
+                        <small style="color: red" th:errors="*{maxPeople}" th:if="${#fields.hasErrors('maxPeople')}"></small>
                     </div>
                 </div>
                 <br>
@@ -70,6 +74,7 @@
                     <label>Tiêu Chuẩn Phòng:</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" th:field="*{standardRoom}">
+                        <small style="color: red" th:errors="*{standardRoom}" th:if="${#fields.hasErrors('standardRoom')}"></small>
                     </div>
                 </div>
                 <br>
@@ -77,6 +82,7 @@
                     <label>Mô Tả Khác:</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" th:field="*{descriptionOtherConvenience}">
+                        <small style="color: red" th:errors="*{descriptionOtherConvenience}" th:if="${#fields.hasErrors('descriptionOtherConvenience')}"></small>
                     </div>
                 </div>
                 <br>
@@ -84,6 +90,7 @@
                     <label>Diện Tích Hồ Bơi:</label>
                     <div class="col-sm-6">
                         <input type="number" class="form-control" th:field="*{poolArea}">
+                        <small style="color: red" th:errors="*{poolArea}" th:if="${#fields.hasErrors('poolArea')}"></small>
                     </div>
                 </div>
                 <br>
@@ -91,6 +98,7 @@
                     <label>Số Tầng:</label>
                     <div class="col-sm-6">
                         <input type="number" class="form-control" th:field="*{numberOfFloor}">
+                        <small style="color: red" th:errors="*{numberOfFloor}" th:if="${#fields.hasErrors('numberOfFloor')}"></small>
                     </div>
                 </div>
                 <br>
@@ -98,6 +106,7 @@
                     <label>Dịch Vụ Miễn Phí:</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" th:field="*{facilityFree}">
+                        <small style="color: red" th:errors="*{facilityFree}" th:if="${#fields.hasErrors('facilityFree')}"></small>
                     </div>
                 </div>
                 <br>

@@ -124,11 +124,12 @@
             </div>
             <div class="modal-body">
 
-                <form th:action="@{/saveCustomer}" method="post" th:object="${customer}">
+                <form th:action="@{/saveCustomer}" method="post" th:object="${customerDto}">
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Tên Khách Hàng: </label>
                         <div class="col-sm-10">
                             <input type="text" id="nameAdd" th:field="*{name}" class="form-control" name="name">
+                            <small th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></small>
 
                         </div>
                     </div>
@@ -137,6 +138,7 @@
                         <div class="col-sm-10">
                             <input type="date" id="dateOfBirthAdd" th:field="*{dateOfBirth}" class="form-control"
                                    name="birthday">
+                            <small th:errors="*{dateOfBirth}" th:if="${#fields.hasErrors('dateOfBirth')}"></small>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -152,6 +154,7 @@
                         <label class="col-sm-2 col-form-label">Số CMND</label>
                         <div class="col-sm-10">
                             <input type="number" id="iDCardAdd" th:field="*{iDCard}" class="form-control" name="iDCard">
+                            <small th:errors="*{iDCard}" th:if="${#fields.hasErrors('iDCard')}"></small>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -159,12 +162,14 @@
                         <div class="col-sm-10">
                             <input th:field="*{phoneNumber}" id="phoneNumberAdd" type="number" class="form-control"
                                    name="phoneNumber">
+                            <small th:errors="*{phoneNumber}" th:if="${#fields.hasErrors('phoneNumber')}"></small>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Email </label>
                         <div class="col-sm-10">
                             <input type="email" th:field="*{email}" id="emailAdd" class="form-control" name="email">
+                            <small th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></small>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -172,6 +177,7 @@
                         <div class="col-sm-10">
                             <input type="text" id="addressAdd" th:field="*{address}" class="form-control"
                                    name="address">
+                            <small th:errors="*{address}" th:if="${#fields.hasErrors('address')}"></small>
                         </div>
                     </div>
                     <div class="mb-3 row">

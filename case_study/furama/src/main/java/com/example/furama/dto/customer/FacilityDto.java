@@ -5,40 +5,50 @@ import com.example.furama.model.facility.FacilityType;
 import com.example.furama.model.facility.RentType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import org.springframework.validation.annotation.Validated;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.lang.annotation.Annotation;
 import java.util.Set;
 
-public class FacilityDto implements Validator {
+public class FacilityDto{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 255,nullable = false)
+    @NotEmpty(message = "Tên dịch vụ không được để trống")
+    @Pattern(regexp = "^[A-Z][a-z]*[0-9]+(\\s[A-Z][a-z]*[0-9]+)+$", message = "Tên phải được viết hoa chữ cái đầu")
+    @Column(length = 255, nullable = false)
     private String name;
-@Min(value = 0,message = "Diện tích phòng khônng được âm")
+    @Min(value = 0, message = "Diện tích phòng khônng được âm")
+    @NotEmpty(message = "Diện tích không được để trống")
     @Column(nullable = false)
     private Integer area;
-@Min(value = 0  , message = "Giá phòng không được âm")
+    @Min(value = 0, message = "Giá phòng không được âm")
+    @NotEmpty(message = "Giá phòng không được để trống")
     @Column(nullable = false)
     private Double cost;
-@Min(value = 0, message = "Số người ở tối đa không được âm")
+    @Min(value = 0, message = "Số người ở tối đa không được âm")
+    @NotEmpty(message = "Số người ở không được để trống")
     @Column(nullable = false)
     private Double maxPeople;
-    @Column(length = 255,nullable = false)
+    @NotEmpty(message = "Tiêu chuẩn phòng không được để trống")
+    @Column(length = 255, nullable = false)
     private String standardRoom;
-    @Column(length = 255,nullable = false)
+    @NotEmpty(message = "Mô tả pòng không được để trống")
+    @Column(length = 255, nullable = false)
     private String descriptionOtherConvenience;
-    @Min(value = 0,message = "diện tích hồ bơi không được âm")
+    @NotEmpty(message = "Diện tích hồ bơi không được để trống")
+    @Min(value = 0, message = "diện tích hồ bơi không được âm")
     @Column(nullable = false)
     private Double poolArea;
-
+    @NotEmpty(message = "Số tầng không được để trốngl")
     @Min(value = 1, message = "Số tầng phải lớn hơn 1")
     @Column(nullable = false)
     private Integer numberOfFloor;
-    @Column(length = 255,nullable = false)
+    @Column(length = 255, nullable = false)
     private String facilityFree;
 
     private RentType rentType;
@@ -170,13 +180,4 @@ public class FacilityDto implements Validator {
         this.contractSet = contractSet;
     }
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return false;
-    }
-
-    @Override
-    public void validate(Object target, Errors errors) {
-
-    }
 }

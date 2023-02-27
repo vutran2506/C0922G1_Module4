@@ -11,14 +11,14 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-public class CustomerDto implements Validator {
+public class CustomerDto {
     private int id;
     @NotNull(message = "Không được để null ")
     @NotBlank(message = "Không được nhập toàn dấu cách")
     @NotEmpty(message = "Không được để trống")
     @Pattern(regexp = "^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$" , message = "Nhập tên không đúng định dạng")
     private String name;
-
+@NotBlank(message = "Ngày sinh không được để trống")
     private String dateOfBirth;
     private boolean gender;
     @NotNull(message = "Không được để null ")
@@ -114,13 +114,5 @@ public class CustomerDto implements Validator {
         return customerType;
     }
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return false;
-    }
 
-    @Override
-    public void validate(Object target, Errors errors) {
-
-    }
 }

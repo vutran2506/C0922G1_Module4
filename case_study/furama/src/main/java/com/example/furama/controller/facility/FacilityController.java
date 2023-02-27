@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,14 +46,19 @@ public class FacilityController {
 
     @GetMapping("/facility/create")
     public String createFacility(Model model, FacilityDto facilityDto){
-        model.addAttribute("facility", new FacilityDto());
+        model.addAttribute("facilityDto", new FacilityDto());
         model.addAttribute("renTypeList", rentTypeService.findAll());
         model.addAttribute("facilityTypeList", facilityTypeService.findAll());
         return "facility/create";
     }
 
     @PostMapping("/facility/save")
-    public String saveFacility(FacilityDto facilityDto, RedirectAttributes redirectAttributes){
+    public String saveFacility(@Validated FacilityDto facilityDto, BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes , Model model){
+//        if (bindingResult.hasErrors()){
+//            model.addAttribute("facilityDto", facilityDto);
+//            return "facility/create";
+//        }
         Facility facility = new Facility();
         BeanUtils.copyProperties(facilityDto,facility);
         facilityService.saveFacility(facility);
